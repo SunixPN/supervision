@@ -1,0 +1,60 @@
+.button {
+    width: 20px;
+    height: 20px;
+    background-image: url(/images/svg/burger.svg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: inherit;
+    cursor: pointer;
+}
+
+.menu {
+    position: absolute;
+    left: 0;
+    transform: translateX(-100%);
+    top: 100%;
+    background-color: #262D33;
+    padding: 20px 40px;
+    transition: 0.3s;
+}
+
+.active {
+    transform: translateX(0);
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: 100%;
+        background-color: white;
+        height: 1px;
+        transform-origin: left;
+        transform: scaleX(0);
+        transition: 0.3s;
+    }
+
+    @media (hover) {
+        &:hover {
+            &::before {
+                transform: scaleX(1);
+            }
+        }
+    }
+}

@@ -1,0 +1,40 @@
+@import "../../../../assets/constants/variables";
+
+.login {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+.image {
+    width: 20px;
+    height: 20px;
+}
+
+.text {
+    font-size: 14px;
+    font-weight: 400;
+    color: $base;
+}
+
+.button {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background-color: inherit;
+}
+
+@media screen and (max-width: 400px) {
+    .text {
+        font-size: 11px;
+    }
+
+    .image {
+        width: 15px;
+        height: 15px;
+    }
+}

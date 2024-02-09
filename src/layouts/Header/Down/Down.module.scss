@@ -1,0 +1,43 @@
+@import "../../../assets/constants/variables";
+
+.down {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.text {
+    font-size: 14px;
+    color: $base;
+    font-weight: 400;
+}
+
+.image {
+    width: 100px;
+    height: 84px;
+    transform: translateY(6px);
+}
+
+.title {
+    font-weight: 600;
+    font-size: 35px;
+    color: $bold;
+}
+
+@media screen and (max-width: 819px) {
+    .down {
+        flex-direction: column-reverse;
+        gap: 8px;
+        margin: 15px 0;
+    }
+
+    .image {
+        display: none;
+    }
+}

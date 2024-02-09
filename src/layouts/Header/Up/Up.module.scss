@@ -1,0 +1,15 @@
+.up {
+    width: 100%;
+    padding: 15px 0 15px 25px;
+    border-bottom: 1px solid #D9DADB;
+    border-left: 1px solid #D9DADB;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+@media screen and (max-width: 400px) {
+    .up {
+        padding: 15px 0 15px 15px;
+    }
+}
