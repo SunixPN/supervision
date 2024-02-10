@@ -10,8 +10,14 @@
     position: relative;
     transition: 0.3s;
 
-    &:hover {
-        background-color: #F5F5F5;
+    @media (hover) {
+        &:hover {
+            background-color: #F5F5F5;
+        }
+    }
+
+    &:last-child {
+        flex: 1 1;
     }
 }
 

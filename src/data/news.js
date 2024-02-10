@@ -1,28 +1,43 @@
 export const news = [
     {
         id: 1,
-        title: "Food",
-        sub: "For Chicken-Fried Steak, Too Much Is Just Enough"
+        type: "Новости",
+        title: "Новости проведенного тура студентов"
     },
     {
         id: 2,
-        title: "Cars",
-        sub: "Storm Has Car Dealers Doing Swift Business"
+        type: "Информирование",
+        title: "Storm Has Car Dealers Doing Swift Business"
     },
     {
         id: 3,
-        title: "Movies",
-        sub: "War Is Hell? In New Military Dramas, It’s One-Dimensional"
+        type: "Наука",
+        title: "War Is Hell? In New Military Dramas, It’s One-Dimensional"
     },
     {
         id: 4,
-        title: "NFL",
-        sub: "11 surprising stat rankings for active NFL players"
+        type: "Путешевствия",
+        title: "11 surprising stat rankings for active NFL players"
     },
     {
         id: 5,
-        title: "Tech Reviews",
-        sub: "The bookcases you can buy online and assemble yourself"
+        type: "Информирование 2024",
+        title: "The bookcases you can buy online and assemble yourself"
+    },
+    {
+        id: 6,
+        type: "Академия",
+        title: "Storm Has Car Dealers Doing Swift Business"
+    },
+    {
+        id: 7,
+        type: "Новости",
+        title: "War Is Hell? In New Military Dramas, It’s One-Dimensional"
+    },
+    {
+        id: 8,
+        type: "Здоровье",
+        title: "Новости проведенного тура студентов"
     },
 
 ]
