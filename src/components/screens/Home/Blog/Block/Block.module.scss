@@ -1,0 +1,75 @@
+@import "../../../../../assets/constants/mixin";
+@import "../../../../../assets/constants/variables";
+
+.article {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+    padding-bottom: 24px;
+    border-bottom: 2px solid #D9DADB;
+
+    &:last-child {
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+}
+
+.image {
+    width: 30%;
+    aspect-ratio: 336 / 200;
+    object-fit: cover;
+}
+
+.content {
+    flex: 0 1 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.type {
+    color: #4592FF;
+    font-weight: 600;
+    text-transform: uppercase;
+    @include adaptive-font(10, 12);
+}
+
+.title {
+    @include adaptive-font(17, 20);
+    color: $bold;
+    font-weight: 600;
+    line-height: 25px;
+}
+
+.sub {
+    @include adaptive-font(12, 14);
+    line-height: 20px;
+    color: $base;
+}
+
+.button {
+    align-self: flex-start;
+}
+
+@media screen and (max-width: 984px) {
+    .article {
+        flex-direction: column;
+    }
+
+    .content {
+        flex: 0 1 auto;
+    }
+    
+    .image {
+        width: 70%;
+        align-self: flex-start;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .image {
+        width: 100%;
+    }
+}

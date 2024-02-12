@@ -10,6 +10,7 @@ const Popular = () => {
                     <Card newspaper={news[news.length - 1]} />
                 </div>
             </div>
+            <div className={styles.container}></div>
         </section>
     )
 }

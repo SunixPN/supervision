@@ -4,8 +4,6 @@ import { navigate } from "../../../data/nav"
 import Burger from "./Burger/Burger"
 import { useEffect, useState } from "react"
 
-
-
 const Navigate = () => {
     const [endIndex, setEndIndex] = useState(window.innerWidth <= 924 ? window.innerWidth <= 480 ? 0 : 4 : 6)
 

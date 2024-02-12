@@ -2,6 +2,8 @@ import Button from "../../../../ui/Button/Button"
 import Recomend from "../Recomend/Recomend";
 import styles from "./Card.module.scss"
 import { news } from "../../../../../data/news"
+import { useState } from "react";
+
 
 
 const Card = ({ newspaper }) => {
@@ -15,7 +17,7 @@ const Card = ({ newspaper }) => {
                 <img className={styles.image} src="/images/other/temp/card.jpg" alt="card" />
                 <p className={styles.sub}>{newspaper.type}</p>
                 <h2 className={styles.title}>{newspaper.title}</h2>
-                <Button link={"#!"}>Read more</Button>
+                <Button link={"#!"}>Читать</Button>
             </div>
             <div className={styles.recomended}>
                 <p className={styles.paragraph}>Рекомендовано для вас</p>
