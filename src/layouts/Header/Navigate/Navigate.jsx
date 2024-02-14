@@ -1,13 +1,15 @@
 import styles from "./Navigate.module.scss"
 import { Link } from "react-router-dom"
-import { navigate } from "../../../data/nav"
 import Burger from "./Burger/Burger"
 import { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
 
 const Navigate = () => {
     const [endIndex, setEndIndex] = useState(window.innerWidth <= 924 ? window.innerWidth <= 480 ? 0 : 4 : 6)
 
     const [index, setIndex] = useState(window.innerWidth <= 924 ? window.innerWidth <= 480 ? 0 : 4 : 6)
+
+    const category = useSelector(state => state.category)
 
     const handleResize = () => {
         if (window.innerWidth <= 924) {
@@ -39,14 +41,14 @@ const Navigate = () => {
     return (
         <nav className={styles.nav}>
             {
-                navigate.length > 6 && <Burger index={index} />
+                category.length > 6 && <Burger category={category} index={index} />
             }
             <div className="wrapper">
                 <ul className={styles.list}>
                     {
-                        navigate.slice(0, endIndex).map(nav => 
-                            <li key={nav.id} className={styles.elem}>
-                                <Link className={styles.link} to={nav.link}>{nav.title}</Link>
+                        category.slice(0, endIndex).map(nav => 
+                            <li key={nav.categoryId} className={styles.elem}>
+                                <Link className={styles.link} to={nav.categoryLink}>{nav.categoryName}</Link>
                             </li>
                         )
                     }

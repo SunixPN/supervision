@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import styles from "./Burger.module.scss"
-import { navigate } from "../../../../data/nav"
 import { Link } from "react-router-dom"
 
-const Burger = ({ index }) => {
+const Burger = ({ category, index }) => {
     const [active, setActive] = useState(false)
 
     const classes = [styles.menu, active ? styles.active : ""]
@@ -14,9 +13,9 @@ const Burger = ({ index }) => {
             <nav className={classes.join(" ")}>
                 <ul className={styles.list}>
                     {
-                        navigate.slice(index).map(nav => 
-                            <li key={nav.id}>
-                                <Link className={styles.link} to={nav.link}>{nav.title}</Link>
+                        category.slice(index).map(nav => 
+                            <li key={nav.categoryId}>
+                                <Link className={styles.link} to={nav.categoryLink}>{nav.categoryName}</Link>
                             </li>
                         )
                     }

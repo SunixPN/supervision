@@ -1,5 +1,5 @@
+import { useSelector } from "react-redux"
 import styles from "./Footer.module.scss"
-import { navigate } from "../../data/nav"
 import { Link } from "react-router-dom"
 
 const Footer = () => {
@@ -31,6 +31,8 @@ const Footer = () => {
         }
     ]
 
+    const category = useSelector(state => state.category)
+
     return (
         <footer className={styles.footer}>
             <div className="wrapper">
@@ -47,9 +49,9 @@ const Footer = () => {
                     <nav className={styles.nav}>
                         <ul className={styles.list}>
                             {
-                                navigate.map(nav =>
-                                    <li key={nav.id} className={styles.elem}>
-                                        <Link className={styles.link} to={nav.link}>{nav.title}</Link>
+                                category.map(nav =>
+                                    <li key={nav.categoryId} className={styles.elem}>
+                                        <Link className={styles.link} to={nav.categoryLink}>{nav.categoryName}</Link>
                                     </li> 
                                 )
                             }
