@@ -7,6 +7,7 @@ import Popular from "./Popular/Popular"
 import { CategoryService } from './../../../services/CategoryService';
 import { useEffect } from "react"
 import { useActions } from './../../../hooks/useActions';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     const { data } = useQuery({
@@ -21,6 +22,7 @@ const Home = () => {
 
     return (
         <>
+        <Link to={"/admin"}>ССЫЛКА</Link>
         <Header />
         <Popular />
         <News />
