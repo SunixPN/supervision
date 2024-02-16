@@ -8,6 +8,7 @@ export class NewsService {
     }
 
     static async getNews() {
-        
+        const respones = await axios.get(`${BASE_URL}/news`)
+        return respones.data
     }
 }
