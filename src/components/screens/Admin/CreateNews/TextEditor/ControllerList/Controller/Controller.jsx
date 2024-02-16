@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import styles from "./Controller.module.scss"
 import { RichUtils } from "draft-js"
+import { memo } from "react"
 
-const Controller = ({ children, type = null, editorState, setEditorState, block = null }) => {
+const Controller = memo(({ children, type = null, editorState, setEditorState, block = null }) => {
     const getCurrentBlockType = () => {
         const selection = editorState.getSelection();
         const contentState = editorState.getCurrentContent();
@@ -36,6 +37,6 @@ const Controller = ({ children, type = null, editorState, setEditorState, block 
             { children }
         </button>
     )
-}
+})
 
 export default Controller

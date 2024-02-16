@@ -8,6 +8,7 @@
     background-color: white;
     padding: 20px;
     min-height: 300px;
+    border-radius: 0 0 10px 10px;
 }
 
 pre[data-block] {
@@ -22,4 +23,11 @@ blockquote[data-block] {
     font-family: Hoefler Text,Georgia,serif;
     font-style: italic;
     padding: 10px 20px;
+}
+
+.public-DraftEditorPlaceholder-hasFocus {
+
+    .public-DraftEditorPlaceholder-inner {
+        display: none;
+    }
 }

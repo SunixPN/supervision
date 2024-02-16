@@ -1,10 +1,9 @@
-import TextEditor from "./TextEditor/TextEditor"
+import CreateNews from "./CreateNews/CreateNews"
 
 const Admin = () => {
-
     return (
         <>
-            <TextEditor />
+            <CreateNews />
         </>
     )
 }

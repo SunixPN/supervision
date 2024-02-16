@@ -7,9 +7,10 @@ import Popular from "./Popular/Popular"
 import { CategoryService } from './../../../services/CategoryService';
 import { useEffect } from "react"
 import { useActions } from './../../../hooks/useActions';
+import Loader from "../../ui/Loader/Loader"
 
 const Home = () => {
-    const { data } = useQuery({
+    const { data, isLoading } = useQuery({
         queryKey: ["category"],
         queryFn: CategoryService.getAllCategories,
         retry: 2
@@ -26,6 +27,7 @@ const Home = () => {
         <News />
         <Blog />
         <Footer />
+        { isLoading && <Loader text={"Подгрузка данных"} /> }
         </>
     )
 }
