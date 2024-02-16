@@ -11,15 +11,15 @@ const Card = ({ newspaper, news }) => {
     return (
         <article className={styles.card}>
             <div className={styles.block}>
-                <img className={styles.image} src={newspaper?.titleImageUrl} alt="card" />
-                <p className={styles.sub}>{newspaper?.categoryName}</p>
-                <h2 className={styles.title}>{newspaper?.title}</h2>
-                <Button link={newspaper?.newsUrl}>Читать</Button>
+                <img className={styles.image} src={newspaper.titleImageUrl} alt="card" />
+                <p className={styles.sub}>{newspaper.categoryName}</p>
+                <h2 className={styles.title}>{newspaper.title}</h2>
+                <Button link={newspaper.newsUrl}>Читать</Button>
             </div>
             <div className={styles.recomended}>
                 <p className={styles.paragraph}>Рекомендовано для вас</p>
                 {
-                    news.slice(startIndex, lastIndex).map(elem => <Recomend key={elem?.newsId} news={elem} />)
+                    news.slice(startIndex, lastIndex).map(elem => <Recomend key={elem.newsId} news={elem} />)
                 }
             </div>
         </article>

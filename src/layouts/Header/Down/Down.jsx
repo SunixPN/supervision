@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import styles from "./Down.module.scss"
 import Time from "./Time/Time"
 
@@ -8,7 +9,9 @@ const Down = () => {
                 <img className={styles.image} src="/images/other/blog.png" alt="blog" />
                 <p className={styles.text}>Портал для кураторства</p>
             </div>
-            <h1 className={styles.title}>Universal</h1>
+            <Link className={styles.link} to={"/"}>
+                <span className={styles.title}>Universal</span>
+            </Link>
             <Time />
         </div>
     )

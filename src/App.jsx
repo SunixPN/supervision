@@ -1,7 +1,6 @@
 import Router from "./router/Router"
 import { useActions } from "./hooks/useActions"
 import { useQuery } from 'react-query';
-import { useEffect } from "react";
 import { CategoryService } from "./services/CategoryService";
 import { NewsService } from './services/NewsService';
 import Loader from "./components/ui/Loader/Loader";
@@ -21,17 +20,29 @@ const App = () => {
 
     const { initialCategory, initialNews } = useActions()
 
-    useEffect(() => { 
-        category && initialCategory(category.categories)
-        news && initialNews(news.news)
-    }, [category])
+    const initial = () => {
+        if (news) {
+            initialCategory(category.categories)
+        }
+
+        if (category) {
+            initialNews(news.news)
+        }
+
+        return <Router />
+    }
 
     return (
         <>
             {
-                (loadCategory || loadNews) ? <Loader text={"Подгрузка данных"} />
+                (loadNews || loadCategory) ? <Loader text={"Подгрузка данных"} />
                 :
-                <Router />
+                <>
+                    {
+                        initial()
+                    }
+                </>
+
             }
 
         </>

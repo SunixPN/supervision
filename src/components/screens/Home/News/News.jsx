@@ -8,9 +8,9 @@ const News = () => {
 
     return (
         <section className={styles.section}>
-            <img className={styles.image} src={newsPaper?.titleImageUrl} alt="card" />
-            <h2 className={styles.title}>{newsPaper?.title}</h2>
-            <Button link={newsPaper?.newsUrl}>Читать</Button>
+            <img className={styles.image} src={newsPaper.titleImageUrl} alt="card" />
+            <h2 className={styles.title}>{newsPaper.title}</h2>
+            <Button link={newsPaper.newsUrl}>Читать</Button>
         </section>
     )
 }

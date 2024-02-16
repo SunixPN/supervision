@@ -5,8 +5,6 @@ import News from "./News/News"
 import Popular from "./Popular/Popular"
 
 const Home = () => {
-
-
     return (
         <>
             <Header />
