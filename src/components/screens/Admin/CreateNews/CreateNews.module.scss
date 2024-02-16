@@ -1,0 +1,9 @@
+@import "../../../../assets/constants/variables";
+@import "../../../../assets/constants/mixin";
+
+.title {
+    @include adaptive-font(25, 40);
+    text-align: center;
+    margin-top: 20px;
+    color: $bold;
+}

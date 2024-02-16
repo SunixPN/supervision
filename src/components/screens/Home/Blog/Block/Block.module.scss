@@ -56,6 +56,7 @@
 @media screen and (max-width: 984px) {
     .article {
         flex-direction: column;
+        align-items: flex-start;
     }
 
     .content {

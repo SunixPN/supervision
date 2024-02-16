@@ -1,0 +1,24 @@
+@import "../../../../../assets/constants/variables";
+@import "../../../../../assets/constants/mixin";
+
+.form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px;
+    gap: 20px;
+    border-radius: 8px;
+    width: 50%;
+    margin: 20px auto;
+}
+
+.image {
+    max-width: 100%;
+}
+
+.title {
+    text-align: center;
+    @include adaptive-font(15, 30);
+    color: $bold;
+    margin-top: 25px;
+}

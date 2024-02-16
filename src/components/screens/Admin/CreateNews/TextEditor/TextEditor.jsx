@@ -5,6 +5,7 @@ import "draft-js/dist/Draft.css"
 import Image from "./Image/Image"
 import ControllerList from "./ControllerList/ControllerList"
 import { memo } from "react"
+import styles from "./TextEditor.module.scss"
 
 const TextEditor = memo(forwardRef((__, ref) => {
     const keyCommand = (command, editorState) => {
@@ -41,10 +42,11 @@ const TextEditor = memo(forwardRef((__, ref) => {
 
     }
     return (
-        <div className="wrapper">
+        <>
+            <h2 className={styles.title}>Контент новости (текстовый редактор)</h2>
             <ControllerList editorState={editorState} setEditorState={setEditorState} />
             <Editor placeholder="Здесь вы можете писать свою новость..." ref={ref} keyBindingFn={handleTab} handleKeyCommand={keyCommand} editorState={editorState} onChange={setEditorState} />
-        </div>
+        </>
     )
 }))
 
