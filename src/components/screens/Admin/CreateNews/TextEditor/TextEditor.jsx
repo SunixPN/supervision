@@ -5,7 +5,6 @@ import "draft-js/dist/Draft.css"
 import Image from "./Image/Image"
 import ControllerList from "./ControllerList/ControllerList"
 import { memo } from "react"
-import styles from "./TextEditor.module.scss"
 
 const TextEditor = memo(forwardRef((__, ref) => {
     const keyCommand = (command, editorState) => {

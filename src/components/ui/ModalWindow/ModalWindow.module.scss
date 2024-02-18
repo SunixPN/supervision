@@ -1,0 +1,57 @@
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.289);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    pointer-events: all;
+    transition: 0.3s;
+}
+
+.wrapper {
+    width: 35%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    width: 100%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    transform: scale(1);
+    transition: 0.3s;
+    position: relative;
+    
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.contentHidden {
+    transform: scale(0);
+}
+
+.button {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 15px;
+    height: 15px;
+    background-image: url(/images/svg/exit.svg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: inherit;
+    cursor: pointer;
+}

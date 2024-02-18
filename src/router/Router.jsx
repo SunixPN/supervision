@@ -1,15 +1,31 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Home from "../components/screens/Home/Home"
-import Admin from "../components/screens/Admin/Admin"
-import Details from "../components/screens/Details/Details"
+import { publicRoutes, privateRoutes } from "./routes"
+import { useSelector } from "react-redux"
+import NotFound from "../components/screens/NotFound/NotFound"
 
 const Router = () => {
+    const auth = useSelector(state => state.auth)
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={ <Home /> } />
-                <Route path="/admin" element={ <Admin /> } />
-                <Route path="/news/:category/:id" element={ <Details /> }></Route>
+                {
+                    auth.auth
+                    ?
+                    <>
+                    {
+                        privateRoutes.map(route => <Route key={route.id} path={route.path} element={<route.element />} />)
+                    }
+                    <Route path="*" element={<NotFound />} />
+                    </>
+                    :
+                    <>
+                    {
+                        publicRoutes.map(route => <Route key={route.id} path={route.path} element={<route.element />} />)
+                    }
+                    <Route path="*" element={<NotFound />} />
+                    </>
+
+                }
             </Routes>
         </BrowserRouter>
     )

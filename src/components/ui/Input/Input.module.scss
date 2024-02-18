@@ -7,4 +7,50 @@
     border-radius: 6px;
     font-size: 14px;
     color: $bold;
+    width: 100%;
+}
+
+.pass {
+    padding: 10px 45px 10px 15px;
+    border: 1px solid #D9DADB;
+    outline: none;
+    border-radius: 6px;
+    font-size: 14px;
+    color: $bold;
+    width: 100%;
+}
+
+.box {
+    position: relative;
+}
+
+.button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-image: url(/images/svg/eye.svg);
+    width: 20px;
+    height: 20px;
+    background-position: center;
+    background-size: contain;
+    background-color: inherit;
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+    &::before {
+        content: "";
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg) scale(1);
+        height: 2px;
+        background-color: black;
+        transition: 0.3s;
+    }
+}
+
+.buttonSee::before {
+    transform: translateY(-50%) rotate(45deg) scale(0);
 }
