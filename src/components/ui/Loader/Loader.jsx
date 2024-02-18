@@ -1,11 +1,13 @@
 import styles from "./Loader.module.scss"
 
-const Loader = ({ text }) => {
+const Loader = ({ text, pageLoading }) => {
+    const wrapperClasses = [styles.wrapper, pageLoading ? styles.white : ""]
+    const pClasses = [styles.paragraph, pageLoading ? styles.p : ""]
     return (
-        <div className={styles.wrapper}>
+        <div className={wrapperClasses.join(" ")}>
             <div className={styles.box}>
                 <div className={styles.loader}></div>
-                <p className={styles.paragraph}>{ text }</p>
+                <p className={pClasses.join(" ")}>{ text }</p>
             </div>
         </div>
     )

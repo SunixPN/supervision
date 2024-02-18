@@ -8,8 +8,6 @@
     padding: 20px;
     gap: 20px;
     border-radius: 8px;
-    width: 50%;
-    margin: 20px auto;
 }
 
 .image {
@@ -21,4 +19,88 @@
     @include adaptive-font(15, 30);
     color: $bold;
     margin-top: 25px;
+}
+
+.area {
+    padding: 15px;
+    border: 1px solid #D9DADB;
+    outline: none;
+    border-radius: 6px;
+    font-size: 14px;
+    color: $bold;
+    min-height: 100px;
+}
+
+.files {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.file {
+    display: none;
+}
+
+.label {
+    width: 25px;
+    height: 25px;
+    background-image: url(/images/svg/image.svg);
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.paragraph {
+    font-size: 14px;
+    color: $bold;
+    font-weight: 400;
+}
+
+.sideBar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 5;
+    width: 40%;
+    height: 100vh;
+    transform: translateX(-100%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.296);
+    transition: 0.4s;
+}
+
+.sideActive {
+    transform: translateX(0);
+}
+
+.button {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) translateX(50%);
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.307);
+    cursor: pointer;
+    transition: 0.4s;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        background-image: url(/images/svg/right-arrow.svg);
+        background-position: center;
+        background-size: contain;
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.activeButton {
+    transform: translateY(-50%) translateX(50%) rotate(180deg);
 }

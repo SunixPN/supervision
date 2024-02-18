@@ -1,13 +1,19 @@
+@import "../../../assets/constants/variables";
+
 .wrapper {
     position: fixed;
     left: 0;
     top: 0;
     right: 0;
     bottom: 0;
-    z-index: 4;
+    z-index: 100;
     background-color: rgba(0, 0, 0, 0.474);
     height: 100vh;
     overflow: hidden;
+}
+
+.white {
+  background-color: white;
 }
 
 .box {
@@ -84,4 +90,8 @@
     color: white;
     font-weight: 20px;
     text-transform: uppercase;
+}
+
+.p {
+  color: $bold;
 }

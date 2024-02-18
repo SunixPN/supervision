@@ -43,7 +43,6 @@ const TextEditor = memo(forwardRef((__, ref) => {
     }
     return (
         <>
-            <h2 className={styles.title}>Контент новости (текстовый редактор)</h2>
             <ControllerList editorState={editorState} setEditorState={setEditorState} />
             <Editor placeholder="Здесь вы можете писать свою новость..." ref={ref} keyBindingFn={handleTab} handleKeyCommand={keyCommand} editorState={editorState} onChange={setEditorState} />
         </>

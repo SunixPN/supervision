@@ -5,13 +5,19 @@ import Blog from "./Blog/Blog"
 import News from "./News/News"
 import Popular from "./Popular/Popular"
 import Loader from "../../ui/Loader/Loader"
+import { useEffect } from "react"
 
 const Home = () => {
     const { loadNews, loadCategory, initial } = useData()
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     return (
         <>
             {
-                (loadNews || loadCategory) ? <Loader text={"Подгрузка данных"} />
+                (loadNews || loadCategory) ? <Loader pageLoading={true} text={"Загрузка данных"} />
                 :
                 <>
                     {

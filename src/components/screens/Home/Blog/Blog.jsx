@@ -5,13 +5,15 @@ import { useSelector } from "react-redux"
 const Blog = () => {
     const news = useSelector(state => state.news)
 
+    const newsReverse = [...news].reverse()
+
     return (
         <section className={styles.blog}>
             <div className="wrapper">
                 <h2 className={styles.title}>Все новости портала</h2>
                 <div className={styles.content}>
                     {
-                        news.map(elem => <Block key={elem.newsId} news={elem} />)
+                        newsReverse.map(elem => <Block key={elem.newsId} news={elem} />)
                     }
                 </div>
             </div>
