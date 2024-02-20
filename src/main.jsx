@@ -6,7 +6,17 @@ import { Provider } from 'react-redux'
 import { store } from './store/store.js'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+            refetchOnWindowFocus: false,
+            refetchOnMount: false,
+            refetchInterval: false,
+            refetchOnReconnect: false,
+
+        }
+    }
+})
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <QueryClientProvider client={queryClient}>

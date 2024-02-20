@@ -1,0 +1,46 @@
+.nav {
+    background-color: #262D33;
+    width: 100%;
+    padding: 18px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.elem {
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: 100%;
+        background-color: white;
+        height: 1px;
+        transform-origin: left;
+        transform: scaleX(0);
+        transition: 0.3s;
+    }
+
+    @media (hover) {
+        &:hover {
+            &::before {
+                transform: scaleX(1);
+            }
+        }
+    }
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+}

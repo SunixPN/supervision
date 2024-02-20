@@ -2,14 +2,17 @@ import { useSelector } from "react-redux";
 import styles from "./Login.module.scss"
 import { Link, useNavigate } from 'react-router-dom';
 import { useActions } from './../../../../hooks/useActions';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ModalWindow from "../../../../components/ui/ModalWindow/ModalWindow";
 import Input from "../../../../components/ui/Input/Input"
 import { useMutation } from "react-query";
 import { AuthService } from "../../../../services/AuthService";
+import Error from "./Error/Error";
+import LoaderForm from "../../../../components/ui/LoaderForm/LoaderForm";
 
 const Login = () => {
     const [modalActive, setModalActive] = useState(false)
+    const [errorActive, setErrorActive] = useState(false)
 
     const auth = useSelector(state => state.auth)
 
@@ -22,7 +25,7 @@ const Login = () => {
 
     const navigate = useNavigate()
 
-    const { mutateAsync } = useMutation({
+    const { mutateAsync, isLoading } = useMutation({
         mutationFn: (body) => AuthService.authPost(body),
         onSuccess: () => {
             setModalActive(false)
@@ -30,13 +33,15 @@ const Login = () => {
             localStorage.setItem("auth", "true")
             return navigate("/admin")
         },
-        onError: () => console.log("ERROR")
+        onError: () => setErrorActive(true)
     })
 
     const handleClick = async (event) => {
         event.preventDefault()
         await mutateAsync(formData)
     }
+
+    useEffect(() => { !modalActive && setErrorActive(false) }, [modalActive])
 
     return (
         <>
@@ -62,6 +67,11 @@ const Login = () => {
                 <Input value={formData.login} onChange={(event) => setFormData({...formData, login: event.target.value})} placeholder="Логин" />
                 <Input value={formData.password} onChange={(event) => setFormData({...formData, password: event.target.value})} type="password" placeholder="Пароль" />
                 <button onClick={handleClick} className={styles.buttonForm}>Войти</button>
+                {
+                    isLoading ? <LoaderForm />
+                    :
+                    errorActive && <Error message={"Неверный логин или пароль"} />
+                }
             </form>
         </ModalWindow>
         </>

@@ -4,9 +4,9 @@ import styles from "./Card.module.scss"
 
 
 const Card = ({ newspaper, news }) => {
-    const lastIndex = news.length - 1
+    const lastIndex = 5
 
-    const startIndex = Math.max(lastIndex - 5, 0) 
+    const startIndex = 0 
 
     return (
         <article className={styles.card}>

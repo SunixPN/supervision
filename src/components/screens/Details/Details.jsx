@@ -1,10 +1,10 @@
 import { useData } from "../../../hooks/useData"
 import Footer from "../../../layouts/Footer/Footer"
 import Header from "../../../layouts/Header/Header"
-import Content from "./Content/Content"
 import styles from "./Details.module.scss"
 import Loader from "../../ui/Loader/Loader"
 import { useEffect } from "react"
+import News from "./News/News"
 
 
 const Details = () => {
@@ -13,6 +13,7 @@ const Details = () => {
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
+
     return (
         <>
             {
@@ -24,7 +25,7 @@ const Details = () => {
                     }
                     <div className={styles.box}>
                         <Header />
-                        <Content />
+                        <News />
                         <Footer />
                     </div>
                 </>

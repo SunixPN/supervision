@@ -8,7 +8,7 @@ const Popular = () => {
         <section className={styles.popular}>
             <div className="wrapper">
                 <div className={styles.content}>
-                    <Card newspaper={news[news.length - 1]} news={news} />
+                    <Card newspaper={news[0]} news={news} />
                 </div>
             </div>
             <div className={styles.container}></div>

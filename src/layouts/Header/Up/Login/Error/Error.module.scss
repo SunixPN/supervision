@@ -1,0 +1,21 @@
+@import "../../../../../assets/constants/variables";
+
+.error {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: rgb(253, 237, 237);
+    align-self: center;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.image {
+    width: 20px;
+    height: 20px;
+}
+
+.text {
+    color: $base;
+    font-weight: 400;
+}

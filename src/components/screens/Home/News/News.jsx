@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 const News = () => {
     const news = useSelector(state => state.news)
-    const newsPaper = news[news.length - 2]
+    const newsPaper = news[1]
 
     return (
         <section className={styles.section}>

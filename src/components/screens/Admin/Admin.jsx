@@ -6,6 +6,7 @@ import Loader from "../../ui/Loader/Loader"
 import Header from "../../../layouts/Header/Header"
 import Footer from "../../../layouts/Footer/Footer"
 import { useEffect } from "react"
+import HeaderAdmin from "./HeaderAdmin/HeaderAdmin"
 
 const Admin = () => {
     const { data: category, isLoading } = useQuery({
@@ -35,7 +36,7 @@ const Admin = () => {
                         initial()
                     }
                     <>
-                    <Header />
+                    <HeaderAdmin />
                     <CreateNews />
                     <Footer />
                     </>
