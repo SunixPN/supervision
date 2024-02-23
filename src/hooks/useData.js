@@ -10,21 +10,22 @@ export const useData = () => {
         retry: 2
     })
 
-    const { data: news, isLoading: loadNews } = useQuery({
-        queryKey: ["newsLimit"],
-        queryFn: () => NewsService.getNewsWithLimit(14),
+    const { data: dataNews, isLoading: loadNews } = useQuery({
+        queryKey: ["newsLimit", 1],
+        queryFn: () => NewsService.getNewsWithLimit(10, 1),
         retry: 2
     })
 
-    const { initialCategory, initialNews } = useActions()
+    const { initialCategory, initialNews, initialPopular } = useActions()
 
     const initial = () => {
         if (category) {
-            initialCategory(category.categories)
+            initialCategory(category.categories[0].categories)
         }
 
-        if (news) {
-            initialNews(news.data.news)
+        if (dataNews) {
+            initialPopular(dataNews.news)
+            initialNews(dataNews.news)
         }
     }
 

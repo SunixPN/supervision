@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import styles from "./Burger.module.scss"
 import { Link } from "react-router-dom"
 
@@ -6,9 +6,21 @@ const Burger = ({ category, index, admin = false }) => {
     const [active, setActive] = useState(false)
 
     const classes = [styles.menu, active ? styles.active : ""]
+    const ref = useRef(null)
+
+    useEffect(() => {
+       
+        const handleClick = (event) => { !ref.current.contains(event.target) && setActive(false) }
+
+        window.addEventListener("click", handleClick)
+
+        return () => {
+            window.removeEventListener("click", handleClick)
+        }
+    }, [])
 
     return (
-        <>
+        <div ref={ref}>
             <button onClick={() => setActive(prev => !prev)} className={styles.button} />
             <nav className={classes.join(" ")}>
                 <ul className={styles.list}>
@@ -21,7 +33,7 @@ const Burger = ({ category, index, admin = false }) => {
                     }
                 </ul>
             </nav>
-        </>
+        </div>
     )
 }
 

@@ -1,0 +1,13 @@
+@import "../../../../../../assets/constants/variables";
+
+.box {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.loading {
+    font-size: 14px;
+    color: $bold;
+    font-weight: 400;
+}

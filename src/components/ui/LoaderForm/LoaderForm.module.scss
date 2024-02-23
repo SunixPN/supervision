@@ -1,6 +1,7 @@
 /* HTML: <div class="loader"></div> */
 .loader {
     width: 15px;
+    display: block;
     aspect-ratio: 1;
     border-radius: 50%;
     animation: l5 1s infinite linear alternate;

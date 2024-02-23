@@ -12,11 +12,14 @@ export class NewsService {
         return respones.data
     }
 
-    static async getNewsWithLimit(limit) {
-        return await axios.get(`${BASE_URL}/news`, {
+    static async getNewsWithLimit(limit, page) {
+        const response = await axios.get(`${BASE_URL}/news`, {
             params: {
-                limit: limit
+                limit: limit,
+                page: page
             }
         })
+
+        return response.data
     }
 }

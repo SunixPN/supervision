@@ -3,12 +3,13 @@ import styles from "./Popular.module.scss"
 import { useSelector } from 'react-redux';
 
 const Popular = () => {
-    const news = useSelector(state => state.news)
+    const popular = useSelector(state => state.popular)
+    
     return (
         <section className={styles.popular}>
             <div className="wrapper">
                 <div className={styles.content}>
-                    <Card newspaper={news[0]} news={news} />
+                    <Card newspaper={popular[0]} news={popular} />
                 </div>
             </div>
             <div className={styles.container}></div>

@@ -1,6 +1,7 @@
 import Block from "./Block/Block"
 import styles from "./Blog.module.scss"
 import { useSelector } from "react-redux"
+import Pagination from "./Pagination/Pagination"
 
 const Blog = () => {
     const news = useSelector(state => state.news)
@@ -14,6 +15,7 @@ const Blog = () => {
                         news.map(elem => <Block key={elem.newsId} news={elem} />)
                     }
                 </div>
+                <Pagination />
             </div>
         </section>
     )

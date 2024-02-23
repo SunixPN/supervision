@@ -13,15 +13,16 @@ const queryClient = new QueryClient({
             refetchOnMount: false,
             refetchInterval: false,
             refetchOnReconnect: false,
-
         }
     }
 })
 
 ReactDOM.createRoot(document.getElementById('root')).render(
+    <React.StrictMode>
     <QueryClientProvider client={queryClient}>
         <Provider store={store}>
             <App />
         </Provider>
     </QueryClientProvider>
+    </React.StrictMode>
 )

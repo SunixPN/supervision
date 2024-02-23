@@ -3,14 +3,14 @@ import Button from './../../../ui/Button/Button';
 import { useSelector } from 'react-redux';
 
 const News = () => {
-    const news = useSelector(state => state.news)
-    const newsPaper = news[1]
+    const popular = useSelector(state => state.popular)
+    const popularPaper = popular[1]
 
     return (
         <section className={styles.section}>
-            <img className={styles.image} src={newsPaper.titleImageUrl} alt="card" />
-            <h2 className={styles.title}>{newsPaper.title}</h2>
-            <Button link={newsPaper.newsUrl}>Читать</Button>
+            <img className={styles.image} src={popularPaper.titleImageUrl} alt="card" />
+            <h2 className={styles.title}>{popularPaper.title}</h2>
+            <Button link={popularPaper.newsUrl}>Читать</Button>
         </section>
     )
 }
