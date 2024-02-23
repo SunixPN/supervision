@@ -30,7 +30,6 @@ const Login = () => {
         onSuccess: () => {
             setModalActive(false)
             authorization()
-            localStorage.setItem("auth", "true")
             return navigate("/admin")
         },
         onError: () => setErrorActive(true)
@@ -38,7 +37,8 @@ const Login = () => {
 
     const handleClick = async (event) => {
         event.preventDefault()
-        await mutateAsync(formData)
+        const { token } = await mutateAsync(formData)
+        localStorage.setItem("success-token", token)
     }
 
     useEffect(() => { !modalActive && setErrorActive(false) }, [modalActive])

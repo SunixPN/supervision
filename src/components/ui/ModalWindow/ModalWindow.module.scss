@@ -55,3 +55,15 @@
     background-color: inherit;
     cursor: pointer;
 }
+
+@media screen and (max-width: 1000px) {
+    .wrapper {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .wrapper {
+        width: 90%;
+    }
+}

@@ -1,3 +1,5 @@
+@import "../../../../assets/constants/mixin";
+
 .cover {
     width: 100%;
     position: relative;
@@ -24,6 +26,7 @@
 }
 
 .content {
+    padding-right: 50px;
     position: absolute;
     top: 50%;
     left: 210px;
@@ -41,8 +44,8 @@
 }
 
 .title {
+    @include adaptive-font(20, 55);
     margin-top: 20px;
-    font-size: 55px;
     color: white;
     font-family: "Roboto Slab", sans-serif;
     font-weight: 600;
@@ -51,10 +54,55 @@
 }
 
 .paragraph {
+    @include adaptive-font(12, 18);
     margin-top: 25px;
-    font-size: 18px;
     color: white;
     font-weight: 400;
     line-height: 30px;
     max-width: 556px;
+}
+
+@media screen and (max-width: 800px) {
+
+    .cover::before {
+        z-index: 3;
+    }
+
+    .image {
+        position: absolute;
+        left: 0;
+        top: 0;
+        max-height: none;
+        z-index: 2;
+    }
+
+    .content {
+        transform: none;
+        z-index: 5;
+        position: relative;
+        left: 0;
+        top: 0;
+        padding-right: 0;
+        align-items: center;
+        width: 90%;
+        margin: 0 auto;
+        padding: 50px 0;
+        z-index: 5;
+    }
+
+    .title {
+        text-align: center;
+        line-height: 130%;
+    }
+
+    .paragraph {
+        text-align: center;
+        line-height: 160%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .paragraph {
+        margin-top: 10px;
+    }
 }

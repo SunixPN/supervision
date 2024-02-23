@@ -3,7 +3,6 @@ import CreateNews from "./CreateNews/CreateNews"
 import { CategoryService } from "../../../services/CategoryService"
 import { useActions } from "../../../hooks/useActions"
 import Loader from "../../ui/Loader/Loader"
-import Header from "../../../layouts/Header/Header"
 import Footer from "../../../layouts/Footer/Footer"
 import { useEffect } from "react"
 import HeaderAdmin from "./HeaderAdmin/HeaderAdmin"
@@ -18,7 +17,7 @@ const Admin = () => {
 
     const initial = () => {
         if (category) {
-            initialCategory(category.categories)
+            initialCategory(category.categories[0].categories)
         }
     }
 
