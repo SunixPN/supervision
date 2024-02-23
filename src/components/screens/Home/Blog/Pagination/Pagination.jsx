@@ -8,6 +8,7 @@ import SnackLoader from "./SnackLoader/SnackLoader"
 const Pagination = forwardRef((__, ref) => {
     const [page, setPage] = useState(1)
     const [active, setActive] = useState({ activePrev: page !== 1, activeNext: true })
+    const [first, setFirst] = useState(true)
 
     const { initialNews } = useActions()
 
@@ -19,8 +20,16 @@ const Pagination = forwardRef((__, ref) => {
 
     useEffect(() => {
         if (dataNews) {
-            ref.current.scrollIntoView({ block: "start" })
-            initialNews(dataNews.news)
+
+            if (first) {
+                initialNews(dataNews.news)
+                setFirst(false)
+            }
+
+            else {
+                ref.current.scrollIntoView({ block: "start" })
+                initialNews(dataNews.news)
+            }
         }
     }, [dataNews])
 
