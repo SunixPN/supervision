@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react"
+import { forwardRef, useEffect, useState } from "react"
 import styles from "./Pagination.module.scss"
 import { useQuery } from "react-query"
 import { NewsService } from "../../../../../services/NewsService"
 import { useActions } from "../../../../../hooks/useActions"
 import SnackLoader from "./SnackLoader/SnackLoader"
 
-const Pagination = () => {
+const Pagination = forwardRef((__, ref) => {
     const [page, setPage] = useState(1)
     const [active, setActive] = useState({ activePrev: page !== 1, activeNext: true })
 
@@ -19,13 +19,14 @@ const Pagination = () => {
 
     useEffect(() => {
         if (dataNews) {
+            ref.current.scrollIntoView({ block: "start" })
             initialNews(dataNews.news)
         }
     }, [dataNews])
 
     const prevHandleClick = () => {
         if (page !== 1) {
-
+            ref.current.scrollIntoView({ block: "start" })
             if (page === 2) {
                 setActive({...active, activePrev: false})
             }
@@ -35,6 +36,7 @@ const Pagination = () => {
     }
 
     const nextHandleClick = () => {
+        ref.current.scrollIntoView({ block: "start" })
         setPage(prev => prev + 1)
         setActive({...active, activePrev: true})
     }
@@ -55,6 +57,6 @@ const Pagination = () => {
         </div>
         </>
     )
-}
+})
 
 export default Pagination
