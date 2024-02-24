@@ -62,7 +62,7 @@ const Login = () => {
             }
         </div>
         <ModalWindow active={modalActive} setActive={setModalActive}>
-            <h3 className={styles.title}>Войдите в админ панель</h3>
+            <h3 className={styles.title}>Авторизация</h3>
             <form className={styles.form}>
                 <Input value={formData.login} onChange={(event) => setFormData({...formData, login: event.target.value})} placeholder="Логин" />
                 <Input value={formData.password} onChange={(event) => setFormData({...formData, password: event.target.value})} type="password" placeholder="Пароль" />
