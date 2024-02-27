@@ -9,7 +9,7 @@ import Loader from "./components/ui/Loader/Loader"
 const App = () => {
     const { authorization } = useActions()
 
-    const { mutateAsync, isLoading, isSuccess } = useMutation({
+    const { mutateAsync, isLoading } = useMutation({
         mutationFn: AuthService.checkAuth,
         onSuccess: () => {
             authorization()
@@ -38,7 +38,7 @@ const App = () => {
         {
             isLoading ? <Loader pageLoading={true} text={"Загрузка данных"} />
             :
-            isSuccess && <Router />  
+            <Router />  
         }
         </>
     )
