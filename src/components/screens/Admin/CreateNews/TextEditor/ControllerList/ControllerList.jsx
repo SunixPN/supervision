@@ -35,12 +35,12 @@ const ControllerList = ({ editorState, setEditorState }) => {
 
         window.addEventListener("resize", handleResize)
         window.addEventListener("click", handleClick)
-        window.addEventListener("keypress", handleClick)
+        window.addEventListener("keydown", handleClick)
 
         return () => {
             window.removeEventListener("resize", handleResize)
             window.removeEventListener("click", handleClick)
-            window.removeEventListener("keypress", handleClick)
+            window.removeEventListener("keydown", handleClick)
         }
     }, [])
 
