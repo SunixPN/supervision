@@ -17,18 +17,16 @@ const Category = () => {
         queryKey: ["newsByCategory", category],
     })
 
-    const { data: categories, isLoading: loadingCategory } = useQuery({
+    const { data: categories, isLoading: loadingCategory, isFetchedAfterMount: fetchCategory } = useQuery({
         queryFn: CategoryService.getAllCategories,
         queryKey: ["category"]
     })
 
     const initial = () => {
-        if (categories) {
+        if (categories && fetchCategory) {
             initialCategory(categories.categories[0].categories)
         }
     }
-
-    console.log(news)
 
     return (
         <>
