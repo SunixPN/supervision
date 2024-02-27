@@ -26,4 +26,10 @@ export class NewsService {
 
         return response.data
     }
+
+    static async getNewsByCategory(category) {
+        const response = await axios.get(`${BASE_URL}/news-category?category=${category}`)
+
+        return response.data
+    }
 }

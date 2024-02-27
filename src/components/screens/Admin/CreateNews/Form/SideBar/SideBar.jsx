@@ -23,11 +23,12 @@ const SideBar = memo(({ handleFileLoad, formState, setFormState }) => {
     }
 
     return (
-        <aside className={sideClasses.join(" ")}>
-            <button onClick={() => setSideBarActive(prev => !prev)} className={buttonClasses.join(" ")}></button>
+        <div className={sideClasses.join(" ")}>
+        <button onClick={() => setSideBarActive(prev => !prev)} className={buttonClasses.join(" ")}></button>
+        <aside className={styles.container}>
             <h2 className={styles.title}>Обложка</h2>
             <form className={styles.form}>
-                <Select onChange={handleChangeCategory} value={getValue()} options={options}></Select>
+                <Select placeholder="Выбрать категорию" onChange={handleChangeCategory} value={getValue()} options={options}></Select>
                 <Input placeholder="Заголовок новости" value={formState.title} onChange={(event) => setFormState({...formState, title: event.target.value})} type="text" />
                 <textarea placeholder="Подзаголовок новости" className={styles.area} value={formState.subTitle} onChange={(event) => setFormState({...formState, subTitle: event.target.value})}></textarea>
                 {
@@ -51,6 +52,7 @@ const SideBar = memo(({ handleFileLoad, formState, setFormState }) => {
                 }
             </form>
         </aside>
+        </div>
     )
 })
 

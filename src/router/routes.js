@@ -1,4 +1,5 @@
 import Admin from "../components/screens/Admin/Admin";
+import Category from "../components/screens/Category/Category";
 import Details from "../components/screens/Details/Details";
 import Home from "../components/screens/Home/Home";
 
@@ -12,6 +13,11 @@ export const publicRoutes = [
         id: 2,
         path: "/news/:category/:id",
         element: Details
+    },
+    {
+        id: 3,
+        path: "/category/:category",
+        element: Category
     }
 ]
 

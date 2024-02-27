@@ -44,3 +44,9 @@
     font-weight: 700;
     font-size: 14px;
 }
+
+@media screen and (max-width: 789px) {
+    .nav {
+        padding-left: 15px;
+    }
+}

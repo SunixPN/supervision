@@ -55,13 +55,32 @@
     font-size: 14px;
     color: $bold;
     font-weight: 400;
+    text-align: center;
+}
+
+.container {
+    position: relative;
+    overflow-y: auto;
+    height: 100%;
+}
+
+.container::-webkit-scrollbar {
+    background-color: #4593ff3f;
+    border-radius: 8px;
+    width: 4px;
+    box-shadow: 0 0 20px #4593ff29;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background-color: #4592FF;
+    border-radius: 8px;
 }
 
 .sideBar {
     position: fixed;
     left: 0;
     top: 0;
-    z-index: 5;
+    z-index: 100;
     width: 40%;
     height: 100vh;
     transform: translateX(-100%);
@@ -87,6 +106,7 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.307);
     cursor: pointer;
     transition: 0.4s;
+    z-index: 10;
 
     &::before {
         content: "";
@@ -103,4 +123,16 @@
 
 .activeButton {
     transform: translateY(-50%) translateX(50%) rotate(180deg);
+}
+
+@media screen and (max-width: 1000px) {
+    .sideBar {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .sideBar {
+        width: 95%;
+    }
 }

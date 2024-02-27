@@ -3,12 +3,13 @@ import { useActions } from "./hooks/useActions"
 import Router from "./router/Router"
 import { AuthService } from "./services/AuthService"
 import { useEffect } from "react"
+import Loader from "./components/ui/Loader/Loader"
 
 
 const App = () => {
     const { authorization } = useActions()
 
-    const { mutateAsync } = useMutation({
+    const { mutateAsync, isLoading, isSuccess } = useMutation({
         mutationFn: AuthService.checkAuth,
         onSuccess: () => {
             authorization()
@@ -34,7 +35,11 @@ const App = () => {
     
     return (
         <>
-        <Router />   
+        {
+            isLoading ? <Loader pageLoading={true} text={"Загрузка данных"} />
+            :
+            isSuccess && <Router />  
+        }
         </>
     )
 }

@@ -58,14 +58,3 @@
     flex-direction: column;
     gap: 20px;
 }
-
-@media screen and (max-width: 400px) {
-    .text {
-        font-size: 11px;
-    }
-
-    .image {
-        width: 15px;
-        height: 15px;
-    }
-}
