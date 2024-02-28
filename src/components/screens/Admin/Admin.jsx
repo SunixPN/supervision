@@ -6,6 +6,7 @@ import Loader from "../../ui/Loader/Loader"
 import Footer from "../../../layouts/Footer/Footer"
 import { useEffect } from "react"
 import HeaderAdmin from "./HeaderAdmin/HeaderAdmin"
+import { useSelector } from "react-redux"
 
 const Admin = () => {
     const { data: category, isLoading } = useQuery({
@@ -13,34 +14,31 @@ const Admin = () => {
         queryFn: CategoryService.getAllCategories,
     })
 
-    const { initialCategory } = useActions()
-
-    const initial = () => {
-        if (category) {
-            initialCategory(category.categories[0].categories)
-        }
-    }
+    const queries = useSelector(state => state.queries)
+    const categories = useSelector(state => state.category)
+    const { initialCategory, setCategory } = useActions()
 
     useEffect(() => {
+        if (category && queries.category) {
+            setCategory()
+            initialCategory(category.categories[0].categories)
+        }
+        
         window.scrollTo(0, 0)
-    }, [])
+    }, [category])
     
     return (
         <>
             {
-                isLoading ? <Loader text={"Загрузка данных"} pageLoading={true} />
-                :
+                isLoading || categories.length === 0 
+                ? 
+                <Loader text={"Загрузка данных"} pageLoading={true} />
+                :    
                 <>
-                    {
-                        initial()
-                    }
-                    <>
-                    <HeaderAdmin />
-                    <CreateNews />
-                    <Footer />
-                    </>
-
-                </>  
+                <HeaderAdmin />
+                <CreateNews />
+                <Footer />
+                </> 
             }
         </>
     )

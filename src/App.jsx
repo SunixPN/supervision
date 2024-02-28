@@ -2,12 +2,14 @@ import { useMutation } from "react-query"
 import { useActions } from "./hooks/useActions"
 import Router from "./router/Router"
 import { AuthService } from "./services/AuthService"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Loader from "./components/ui/Loader/Loader"
+import SnackBar from "./components/screens/Admin/CreateNews/TextEditor/ControllerList/SnackBar/SnackBar"
 
 
 const App = () => {
     const { authorization } = useActions()
+    const [error, setError] = useState(false)
 
     const { mutateAsync, isLoading } = useMutation({
         mutationFn: AuthService.checkAuth,
@@ -23,8 +25,8 @@ const App = () => {
                 await mutateAsync()
             }
 
-            catch (error) {
-                console.log(error.message)
+            catch {
+                setError(true)
             }
         }
 
@@ -38,7 +40,10 @@ const App = () => {
         {
             isLoading ? <Loader pageLoading={true} text={"Загрузка данных"} />
             :
+            <>            
             <Router />  
+            <SnackBar open={error} setOpen={setError} severity={"info"} text={"Срок действия авторизации истек"} />
+            </>
         }
         </>
     )

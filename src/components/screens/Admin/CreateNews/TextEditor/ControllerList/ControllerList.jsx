@@ -20,11 +20,8 @@ const ControllerList = ({ editorState, setEditorState }) => {
     const styleRef = useRef(null)
     const blockRef = useRef(null)
 
-    console.log(select)
-
     useEffect(() => {
         const handleResize = () => { 
-            console.log(window.innerWidth)
             window.innerWidth <= 600 ? setSelect(true) : setSelect(false) 
         }
 

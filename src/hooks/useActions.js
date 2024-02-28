@@ -5,12 +5,14 @@ import { bindActionCreators } from "@reduxjs/toolkit"
 import { actions as categoryActions } from "../store/category/category.slice"
 import { actions as authActions } from "../store/auth/auth.slice"
 import { actions as popularActions } from "../store/popular/popular.slice"
+import { actions as queriesActions } from "../store/queries/queries.slice"
 
 const rootActions = {
     ...categoryActions,
     ...newsActions,
     ...authActions,
-    ...popularActions
+    ...popularActions,
+    ...queriesActions
 }
 
 export const useActions = () => {
