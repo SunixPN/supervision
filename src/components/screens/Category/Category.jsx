@@ -6,40 +6,46 @@ import { NewsService } from "../../../services/NewsService"
 import Loader from "../../ui/Loader/Loader"
 import { CategoryService } from "../../../services/CategoryService"
 import { useActions } from "../../../hooks/useActions"
+import { useEffect } from "react"
+import { useSelector } from "react-redux"
+import NewsByCategory from "./NewsByCategory/NewsByCategory"
+import styles from "./Category.module.scss"
 
 const Category = () => {
     const { category } = useParams()
-    const { initialCategory } = useActions()
 
+    const { initialCategory, setCategory } = useActions()
+    const queries = useSelector(state => state.queries)
+    const categories = useSelector(state => state.category)
 
     const { data: news, isLoading: loadingNews } = useQuery({
         queryFn: () => NewsService.getNewsByCategory(category),
         queryKey: ["newsByCategory", category],
     })
 
-    const { data: categories, isLoading: loadingCategory, isFetchedAfterMount: fetchCategory } = useQuery({
+    const { data: dataCategory, isLoading: loadingCategory } = useQuery({
         queryFn: CategoryService.getAllCategories,
         queryKey: ["category"]
     })
 
-    const initial = () => {
-        if (categories && fetchCategory) {
-            initialCategory(categories.categories[0].categories)
+    useEffect(() => {
+        if (dataCategory && queries.category) {
+            setCategory()
+            initialCategory(dataCategory.categories[0].categories)
         }
-    }
+    }, [dataCategory])
 
     return (
         <>
         {
-            loadingNews || loadingCategory ? <Loader pageLoading={true} text={"Загрузка новостей"} />
+            (loadingNews || loadingCategory) || (categories.length === 0 || !news)
+            ? <Loader pageLoading={true} text={"Загрузка новостей"} />
             :
-            <>
-            {
-                initial()
-            }
+            <div className={styles.container}>
             <Header />
+            <NewsByCategory news={news.news} />
             <Footer />
-            </>
+            </div>
         }
 
         </>

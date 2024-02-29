@@ -26,7 +26,7 @@ const Burger = ({ category, index, admin = false }) => {
                 <ul className={styles.list}>
                     {
                         category.slice(index).map(nav => 
-                            <li key={admin ? nav.id : nav.categoryId}>
+                            <li onClick={() => setActive(false)} key={admin ? nav.id : nav.categoryId}>
                                 <Link className={styles.link} to={admin ? nav.link : nav.categoryLink}>{admin ? nav.title : nav.categoryName}</Link>
                             </li>
                         )

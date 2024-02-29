@@ -1,0 +1,60 @@
+@import "../../../../assets/constants/variables";
+@import "../../../../assets/constants/mixin";
+
+.news {
+    width: 100%;
+    margin-top: 30px;
+    flex: 1 1;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.paragrpah {
+    margin-top: 5px;
+    max-width: 600px;
+    text-align: center;
+    color: $base;
+    font-weight: 400;
+    @include adaptive-font(15, 18);
+    line-height: 26px;
+}
+
+.image {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}
+
+.title {
+    text-align: center;
+    color: $bold;
+    font-weight: 600;
+    @include adaptive-font(20, 30);
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+@media screen and (max-width: 600px) {
+    .image {
+        width: 150px;
+        height: 150px;
+    }
+}
