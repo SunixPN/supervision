@@ -24,7 +24,6 @@ const Pagination = forwardRef((__, ref) => {
 
     useEffect(() => {
         if (dataNews) {
-            console.log(dataNews)
 
             if (dataNews.news.length === 0) {
 

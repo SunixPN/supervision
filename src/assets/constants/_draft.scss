@@ -36,3 +36,16 @@ blockquote[data-block] {
     text-align: justify;
     line-height: 200%;
 }
+
+.public-DraftStyleDefault-depth0.public-DraftStyleDefault-reset,
+.public-DraftStyleDefault-depth0.public-DraftStyleDefault-listLTR {
+
+    &::before {
+        display: none;
+
+    }
+}
+
+.public-DraftStyleDefault-orderedListItem {
+    list-style-type: inherit;
+}

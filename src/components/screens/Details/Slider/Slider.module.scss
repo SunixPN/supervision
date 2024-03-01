@@ -1,0 +1,30 @@
+@import "../../../../assets/constants/variables";
+@import "../../../../assets/constants/mixin";
+
+.slider {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.title {
+    text-align: center;
+    color: $bold;
+    @include adaptive-font(20, 30);
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.wrapper {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.navigation {
+    margin-top: 15px;
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}

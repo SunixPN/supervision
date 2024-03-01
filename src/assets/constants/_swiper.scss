@@ -1,0 +1,52 @@
+.swiper-button {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &::before {
+        content: "";
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        background-image: url(/images/svg/right-arrow.svg);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    @media (hover) {
+        &:hover {
+            background-color: #4592FF;
+            &::before {
+                filter: invert(1) sepia(0) saturate(10000%) hue-rotate(0deg);
+            }
+        }
+    }
+}
+
+.swiper-prev::before {
+    transform: rotate(180deg);
+}
+
+.swiper-button-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+@media screen and (max-width: 600px) {
+    .swiper-button {
+        width: 40px;
+        height: 40px;
+
+        &::before {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
