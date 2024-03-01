@@ -10,6 +10,7 @@ import { useActions } from "../../../hooks/useActions"
 import { useParams } from "react-router-dom"
 import { NewsService } from "../../../services/NewsService"
 import { useSelector } from "react-redux"
+import ScrollButton from "../../ui/ScrollButton/ScrollButton"
 
 
 const Details = () => {
@@ -45,6 +46,7 @@ const Details = () => {
                 <Loader pageLoading={true} text={"Загрузка данных"} />
                 :
                 <>
+                    <ScrollButton />
                     <div className={styles.box}>
                         <Header />
                         <News news={news.news} />

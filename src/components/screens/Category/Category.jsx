@@ -33,6 +33,7 @@ const Category = () => {
             setCategory()
             initialCategory(dataCategory.categories[0].categories)
         }
+        window.scrollTo(0, 0)
     }, [dataCategory])
 
     return (

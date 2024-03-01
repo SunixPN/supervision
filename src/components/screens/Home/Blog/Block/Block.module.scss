@@ -34,6 +34,7 @@
     font-weight: 600;
     text-transform: uppercase;
     @include adaptive-font(10, 12);
+    text-decoration: none;
 }
 
 .title {

@@ -3,7 +3,9 @@
     flex: 1 1;
     width: calc(1140 / 1366 * 100%);
     max-width: 1140px;
-    margin: 40px auto 0 auto;
+    margin: 0 auto -50px auto;
+    padding: 30px;
+    background-color: white;
 
     @media screen and (max-width: 480px) {
         width: 95%;

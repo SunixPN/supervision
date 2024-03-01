@@ -24,6 +24,7 @@ const Pagination = forwardRef((__, ref) => {
 
     useEffect(() => {
         if (dataNews) {
+            console.log(dataNews)
 
             if (dataNews.news.length === 0) {
 
@@ -34,6 +35,11 @@ const Pagination = forwardRef((__, ref) => {
                     setPage(prev => prev - 1)
                 }
 
+                setActive({...active, activeNext: false})
+            }
+
+            else if (dataNews.news.length < 10) {
+                initialNews(dataNews.news)
                 setActive({...active, activeNext: false})
             }
 
