@@ -1,0 +1,26 @@
+@import "../../../../assets/constants/variables";
+@import "../../../../assets/constants/mixin";
+
+.deleter {
+    width: 100%;
+    margin-top: 35px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.title {
+    font-weight: 600;
+    @include adaptive-font(25, 33);
+    color: $bold;
+    text-align: center;
+}
+
+.box {
+    background-color: white;
+    padding: 20px;   
+}

@@ -17,7 +17,6 @@ const CreateNews = () => {
 
     const [openSuccess, setOpenSuccess] = useState(false)
     const [openError, setOpenError] = useState(false)
-
     const [formState, setFormState] = useState(defaultValue)
 
     const { mutateAsync, isLoading } = useMutation({
@@ -30,7 +29,7 @@ const CreateNews = () => {
 
     const publication = async () => {
         const content = ref.current?.editorContainer.firstElementChild.innerHTML
-        await mutateAsync({...formState, newsContent: content})
+        await mutateAsync({...formState, newsContent: content, titleForSearch: formState.title.toLowerCase()})
         setFormState(defaultValue)
     }
 
@@ -50,7 +49,6 @@ const CreateNews = () => {
             </div>
         </div>
         </>
-
     )
 }
 

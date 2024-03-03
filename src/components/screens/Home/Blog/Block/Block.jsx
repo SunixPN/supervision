@@ -8,7 +8,9 @@ const Block = ({ news }) => {
 
     return (
         <article className={styles.article}>
-            <img className={styles.image} src={news.titleImageUrl} alt="news" />
+            <Link className={styles.linkImage} to={news.newsUrl}>
+                <img className={styles.image} src={news.titleImageUrl} alt="news" />
+            </Link>
             <div className={styles.content}>
                 <Link to={categoryLink} className={styles.type}>{ news.categoryName }</Link>
                 <h3 className={styles.title}>{ news.title }</h3>

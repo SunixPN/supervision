@@ -15,8 +15,12 @@
     }
 }
 
-.image {
+.linkImage {
     width: 30%;
+}
+
+.image {
+    width: 100%;
     aspect-ratio: 336 / 200;
     object-fit: cover;
 }
@@ -64,14 +68,14 @@
         flex: 0 1 auto;
     }
     
-    .image {
+    .linkImage {
         width: 70%;
         align-self: flex-start;
     }
 }
 
 @media screen and (max-width: 500px) {
-    .image {
+    .linkImage {
         width: 100%;
     }
 }

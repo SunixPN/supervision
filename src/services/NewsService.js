@@ -32,4 +32,15 @@ export class NewsService {
 
         return response.data
     }
+
+    static async deleteNews(body) {
+        const response = await axios.delete(`${BASE_URL}/news`, {
+            data: body,
+            headers: {
+                "Authorization": `Bearer ${localStorage.getItem("success-token")}` 
+            }
+        })
+
+        return response.data
+    }
 }

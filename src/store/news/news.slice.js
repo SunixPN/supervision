@@ -4,12 +4,12 @@ export const newsSlice = createSlice({
     initialState: [],
     name: "news",
     reducers: {
-        initialNews: (state, { payload: data }) => {
-            state.splice(0, state.length)
-            
-            for (let i = 0; i < data.length; i++) {
-                state[i] = data[i]
-            }
+        initialNews: (__, { payload: data }) => {
+            return data
+        },
+        
+        deleteNews: (state, { payload: id }) => {
+            return state.filter(newsPaper => newsPaper.newsId !== id)
         }
     }
 })
