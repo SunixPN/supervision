@@ -1,26 +1,15 @@
 import { Editor, EditorState, Modifier, RichUtils, getDefaultKeyBinding } from "draft-js"
-import { createDecorator, findEntitiesOf } from "contenido"
-import { forwardRef, useState } from "react"
-import "draft-js/dist/Draft.css"
-import Image from "./Image/Image"
+import { forwardRef } from "react"
 import ControllerList from "./ControllerList/ControllerList"
 import { memo } from "react"
+import "draft-js/dist/Draft.css"
 
-const TextEditor = memo(forwardRef((__, ref) => {
+const TextEditor = memo(forwardRef(({ editorState, setEditorState }, ref) => {
     const keyCommand = (command, editorState) => {
         const newState = RichUtils.handleKeyCommand(editorState, command)
 
         newState && setEditorState(newState)
     }
-
-    const decorators = createDecorator([
-        {
-            component: Image,
-            strategy: findEntitiesOf("image")
-        }
-    ])
-
-    const [editorState, setEditorState] = useState(() => EditorState.createEmpty(decorators))
 
     const handleTab = (event) => {
         if (event.keyCode === 9) {

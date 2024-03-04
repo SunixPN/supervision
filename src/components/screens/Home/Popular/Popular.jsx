@@ -1,8 +1,9 @@
+import { memo } from "react";
 import Card from "./Card/Card"
 import styles from "./Popular.module.scss"
 import { useSelector } from 'react-redux';
 
-const Popular = () => {
+const Popular = memo(() => {
     const popular = useSelector(state => state.popular)
     
     return (
@@ -15,6 +16,6 @@ const Popular = () => {
             <div className={styles.container}></div>
         </section>
     )
-}
+})
 
 export default Popular

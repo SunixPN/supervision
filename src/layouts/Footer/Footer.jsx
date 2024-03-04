@@ -1,8 +1,9 @@
 import { useSelector } from "react-redux"
 import styles from "./Footer.module.scss"
 import { Link } from "react-router-dom"
+import { memo } from "react"
 
-const Footer = () => {
+const Footer = memo(() => {
     const colors = [
         {
             id: 1,
@@ -71,6 +72,6 @@ const Footer = () => {
 
 
     )
-}
+})
 
 export default Footer

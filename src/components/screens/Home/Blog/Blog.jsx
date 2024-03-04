@@ -2,9 +2,9 @@ import Block from "./Block/Block"
 import styles from "./Blog.module.scss"
 import { useSelector } from "react-redux"
 import Pagination from "./Pagination/Pagination"
-import { useRef } from "react"
+import { memo, useRef } from "react"
 
-const Blog = () => {
+const Blog = memo(() => {
     const news = useSelector(state => state.news)
     const ref = useRef(null)
 
@@ -21,6 +21,6 @@ const Blog = () => {
             </div>
         </section>
     )
-}
+})
 
 export default Blog

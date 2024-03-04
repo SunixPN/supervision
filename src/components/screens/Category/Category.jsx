@@ -14,8 +14,7 @@ import styles from "./Category.module.scss"
 const Category = () => {
     const { category } = useParams()
 
-    const { initialCategory, setCategory } = useActions()
-    const queries = useSelector(state => state.queries)
+    const { initialCategory } = useActions()
     const categories = useSelector(state => state.category)
 
     const { data: news, isLoading: loadingNews } = useQuery({
@@ -29,8 +28,7 @@ const Category = () => {
     })
 
     useEffect(() => {
-        if (dataCategory && queries.category) {
-            setCategory()
+        if (dataCategory) {
             initialCategory(dataCategory.categories[0].categories)
         }
         window.scrollTo(0, 0)

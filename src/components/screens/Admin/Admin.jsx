@@ -14,13 +14,11 @@ const Admin = () => {
         queryFn: CategoryService.getAllCategories,
     })
 
-    const queries = useSelector(state => state.queries)
     const categories = useSelector(state => state.category)
-    const { initialCategory, setCategory } = useActions()
+    const { initialCategory } = useActions()
 
     useEffect(() => {
-        if (category && queries.category) {
-            setCategory()
+        if (category) {
             initialCategory(category.categories[0].categories)
         }
         

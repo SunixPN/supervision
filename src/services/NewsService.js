@@ -43,4 +43,9 @@ export class NewsService {
 
         return response.data
     }
+
+    static async searchNews(body) {
+        const response = await axios.get(`${BASE_URL}/searchNews?searchTitle=${body}`)
+        return response.data
+    }
 }

@@ -2,7 +2,7 @@ import Button from "../../../../ui/Button/Button"
 import styles from "./Block.module.scss"
 import { Link } from "react-router-dom"
 
-const Block = ({ news }) => {
+const Block = ({ news, controllers = false, setActiveModal = null }) => {
     const categoryLinkArray = news.newsUrl.split("/")
     const categoryLink = `/category/${categoryLinkArray[2]}`
 
@@ -17,6 +17,13 @@ const Block = ({ news }) => {
                 <p className={styles.sub}>{ news.subTitle }</p>
             </div>
             <div className={styles.button}>
+                {
+                    controllers && 
+                    <div className={styles.controlBox}>
+                        <button onClick={() => setActiveModal(true)} className={[styles.buttonControll, styles.delete].join(" ")} />
+                        <Link to={`/newsEdit/${news.newsId}`} className={[styles.buttonControll, styles.edit].join(" ")} />
+                    </div>
+                }
                 <Button link={news.newsUrl}>Перейти</Button>
             </div>
         </article>

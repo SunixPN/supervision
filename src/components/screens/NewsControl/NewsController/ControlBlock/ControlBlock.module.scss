@@ -6,29 +6,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 15px;
-}
-
-.wrapper:last-child .container .button {
-    margin-bottom: 0;
-}
-
-.button {
-    width: 250px;
-    border-radius: 8px;
-    padding: 10px 0;
-    color: white;
-    background-color: #FF4F52;
-    font-size: 16px;
-    font-weight: 400;
-    cursor: pointer;
-    transition: 0.3s;
-    margin-bottom: 40px;
-
-    @media (hover) {
-        &:hover {
-            box-shadow: 0 0 20px #ff4f528b;
-        }
-    }
+    position: relative;
 }
 
 .titleModal {
@@ -99,5 +77,4 @@
             box-shadow: 0 0 20px #4593ff81;
         }
     }
-
 }

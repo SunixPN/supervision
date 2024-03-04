@@ -1,21 +1,20 @@
 import { useRef } from "react"
 import Pagination from "../../Home/Blog/Pagination/Pagination"
-import DeleteBlock from "./DeleteBlock/DeleteBlock"
+import ControlBlock from "./ControlBlock/ControlBlock"
+import styles from "./NewsController.module.scss"
 
-import styles from "./NewsDeleter.module.scss"
-
-const NewsDeleter = ({ news }) => {
+const NewsController = ({ news }) => {
     const ref = useRef(null)
 
     return (
-        <section className={styles.deleter}>
+        <section ref={ref} className={styles.deleter}>
             <div className="wrapper">
                 <div className={styles.content}>
-                    <h2 className={styles.title}>Выбрать новость для удаления</h2>
+                    <h2 className={styles.title}>Выбрать новость для редактирования/удаления</h2>
                     <div className={styles.box}>
                         {
                             news.map(newsPaper =>
-                                <DeleteBlock key={newsPaper.newsId} newsPaper={newsPaper} />
+                                <ControlBlock key={newsPaper.newsId} newsPaper={newsPaper} />
                             )
                         }
                     </div>
@@ -26,4 +25,4 @@ const NewsDeleter = ({ news }) => {
     )
 }
 
-export default NewsDeleter
+export default NewsController

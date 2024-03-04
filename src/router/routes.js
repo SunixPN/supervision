@@ -1,8 +1,9 @@
 import Admin from "../components/screens/Admin/Admin";
 import Category from "../components/screens/Category/Category";
-import DeleteNews from "../components/screens/DeleteNews/DeleteNews";
 import Details from "../components/screens/Details/Details";
 import Home from "../components/screens/Home/Home";
+import Searching from "../components/screens/Searching/Searching";
+import NewsControl from './../components/screens/NewsControl/NewsControl';
 
 export const publicRoutes = [
     {
@@ -19,19 +20,24 @@ export const publicRoutes = [
         id: 3,
         path: "/category/:category",
         element: Category
+    },
+    {
+        id: 4,
+        path: "/search/:query",
+        element: Searching
     }
 ]
 
 export const privateRoutes = [
     ...publicRoutes,
     {
-        id: 3,
+        id: 5,
         path: "/admin",
         element: Admin
     },
     {
-        id: 4,
-        path: "/admin/deleteNews",
-        element: DeleteNews
+        id: 6,
+        path: "/admin/newsControl",
+        element: NewsControl
     }
 ]

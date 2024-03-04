@@ -12,6 +12,9 @@ import { CategoryService } from './../../../services/CategoryService';
 import { NewsService } from './../../../services/NewsService';
 
 const Home = () => {
+    const news = useSelector(state => state.news)
+    const categories = useSelector(state => state.category)
+
     const { data: category, isLoading: loadCategory } = useQuery({
         queryKey: ["category"],
         queryFn: CategoryService.getAllCategories,
@@ -24,20 +27,14 @@ const Home = () => {
         retry: 2
     })
 
-    const queries = useSelector(state => state.queries)
-    const news = useSelector(state => state.news)
-    const categories = useSelector(state => state.category)
-
-    const { initialCategory, initialNews, initialPopular, setNews, setCategory } = useActions()
+    const { initialCategory, initialNews, initialPopular } = useActions()
 
     useEffect(() => {
-        if (category && queries.category) {
-            setCategory()
+        if (category) {
             initialCategory(category.categories[0].categories)
         }
 
-        if (dataNews && queries.news) {
-            setNews()
+        if (dataNews) {
             initialPopular(dataNews.news)
             initialNews(dataNews.news)
         }

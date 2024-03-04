@@ -1,8 +1,8 @@
 export const adminNavigate = [
     {
         id: 1,
-        title: "Удаление новостей",
-        link: "/admin/deleteNews"
+        title: "Управление новостями",
+        link: "/admin/newsControl"
     },
     {
         id: 2,

@@ -1,8 +1,9 @@
 import styles from "./News.module.scss"
 import Button from './../../../ui/Button/Button';
 import { useSelector } from 'react-redux';
+import { memo } from "react";
 
-const News = () => {
+const News = memo(() => {
     const popular = useSelector(state => state.popular)
     const popularPaper = popular[1]
 
@@ -13,6 +14,6 @@ const News = () => {
             <Button link={popularPaper.newsUrl}>Читать</Button>
         </section>
     )
-}
+})
 
 export default News

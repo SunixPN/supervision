@@ -1,0 +1,42 @@
+@import "../../../../assets/constants/variables";
+@import "../../../../assets/constants/mixin";
+
+.section {
+    width: 100%;
+    margin-top: 30px;
+    flex: 1 1;
+}
+
+.image {
+    width: 200px;
+    height: 200px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.title {
+    font-weight: 600;
+    @include adaptive-font(20, 35);
+    color: $bold;
+    text-align: center;
+}
+
+.paragraph {
+    text-align: center;
+    font-weight: 400;
+    @include adaptive-font(17, 20);
+    color: $base;
+}
+
+.box {
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}

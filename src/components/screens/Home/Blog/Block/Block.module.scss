@@ -8,11 +8,6 @@
     width: 100%;
     padding-bottom: 24px;
     border-bottom: 2px solid #D9DADB;
-
-    &:last-child {
-        padding-bottom: 0;
-        border-bottom: none;
-    }
 }
 
 .linkImage {
@@ -56,6 +51,41 @@
 
 .button {
     align-self: flex-start;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 15px;
+}
+
+.controlBox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.buttonControll {
+    width: 25px;
+    height: 25px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: 0.3s;
+    cursor: pointer;
+    background-color: inherit;
+
+    @media (hover) {
+        &:hover {
+            transform: rotate(8deg)
+        }
+    }
+}
+
+.delete {
+    background-image: url(/images/other/delete.png);
+}
+
+.edit {
+    background-image: url(/images/other/edit.png);
 }
 
 @media screen and (max-width: 984px) {
@@ -72,10 +102,19 @@
         width: 70%;
         align-self: flex-start;
     }
+
+    .button {
+        flex-direction: row-reverse;
+    }
 }
 
 @media screen and (max-width: 500px) {
     .linkImage {
         width: 100%;
+    }
+
+    .buttonControll {
+        width: 20px;
+        height: 20px;
     }
 }

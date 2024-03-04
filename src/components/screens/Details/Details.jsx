@@ -17,8 +17,7 @@ import Slider from "./Slider/Slider"
 const Details = () => {
     const [filterNews, setFilterNews] = useState([])
 
-    const { initialCategory, setCategory } = useActions()
-    const queries = useSelector(state => state.queries)
+    const { initialCategory } = useActions()
     const categories = useSelector(state => state.category)
 
     const { category, id } = useParams()
@@ -34,8 +33,7 @@ const Details = () => {
     })
 
     useEffect(() => {
-        if (categoryData && queries.category) {
-            setCategory()
+        if (categoryData) {
             initialCategory(categoryData.categories[0].categories) 
         }
 
