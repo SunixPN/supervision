@@ -21,7 +21,7 @@ const Block = ({ news, controllers = false, setActiveModal = null }) => {
                     controllers && 
                     <div className={styles.controlBox}>
                         <button onClick={() => setActiveModal(true)} className={[styles.buttonControll, styles.delete].join(" ")} />
-                        <Link to={`/newsEdit/${news.newsId}`} className={[styles.buttonControll, styles.edit].join(" ")} />
+                        <Link to={`/newsEdit/${news.newsUrl.split("/")[2]}/${news.newsId}`} className={[styles.buttonControll, styles.edit].join(" ")} />
                     </div>
                 }
                 <Button link={news.newsUrl}>Перейти</Button>

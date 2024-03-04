@@ -6,7 +6,7 @@ import { useMutation, useQueryClient } from 'react-query';
 import { NewsService } from '../../../../services/NewsService';
 import Loader from '../../../ui/Loader/Loader';
 import SnackBar from './TextEditor/ControllerList/SnackBar/SnackBar';
-import { EditorState } from 'draft-js';
+import { EditorState, convertToRaw } from 'draft-js';
 import { createDecorator, findEntitiesOf } from 'contenido';
 import Image from './TextEditor/Image/Image';
 
@@ -49,7 +49,13 @@ const CreateNews = () => {
 
     const publication = async () => {
         const content = ref.current?.editorContainer.firstElementChild.innerHTML
-        await mutateAsync({...formState, newsContent: content, titleForSearch: formState.title.toLowerCase()})
+        console.log(convertToRaw(editorState.getCurrentContent()))
+        await mutateAsync({
+            ...formState, 
+            newsContent: content, 
+            titleForSearch: formState.title.toLowerCase(),
+            settings: convertToRaw(editorState.getCurrentContent())
+        })
         setFormState(defaultValue)
         
         const emptyEditoreState = EditorState.createEmpty(decorators)

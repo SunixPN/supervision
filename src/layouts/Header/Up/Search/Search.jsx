@@ -14,12 +14,14 @@ const Search = () => {
     }
 
     const handleClick = () => {
-        setQuery("")
-        return navigate(`/search/${search.query}`)
+        if (search.query !== "") {
+            setQuery("")
+            return navigate(`/search/${search.query}`)
+        }
     }
 
     const handleKeyDown = (event) => {
-        if (event.key === "Enter") {
+        if (event.key === "Enter" && search.query !== "") {
             setQuery("")
             return navigate(`/search/${search.query}`)
         } 
