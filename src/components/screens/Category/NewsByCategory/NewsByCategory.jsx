@@ -19,7 +19,7 @@ const NewsByCategory = ({ news }) => {
 
                         :
                         <>
-                        <h1 className={styles.title}>Новости по категории {'"' + news[0].categoryName.toLowerCase() + '"'}</h1>
+                        <h1 className={styles.title}>Новости по категории {'"' + news[0].categoryName + '"'}</h1>
                         <div className={styles.box}>
                             {
                                 news.map(newsPaper => <Block news={newsPaper} key={newsPaper.newsId} />)

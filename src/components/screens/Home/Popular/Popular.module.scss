@@ -21,6 +21,16 @@
 
 @media screen and (max-width: 1200px) {
     .container {
-        height: 400px;
+        display: none;
+    }
+
+    .popular {
+        background-color: $bold;
+        padding: 50px 0;
+    }
+
+    .content {
+        position: static;
+        top: 0;
     }
 }

@@ -9,6 +9,12 @@
     min-height: 554px;
 }
 
+.recommendBox {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 .block {
     display: flex;
     flex-direction: column;
@@ -91,6 +97,7 @@
         opacity: 1;
         visibility: visible;
         transition: 0.3s;
+        height: auto;
     }
 
     .dropBox {
