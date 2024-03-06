@@ -35,18 +35,18 @@ const ControlBlock = ({ newsPaper }) => {
         <SnackBar open={openError} setOpen={setOpenError} severity={"error"} text={"Ошибка удаления"} />
         <div className={styles.container}>
             <Block news={newsPaper} controllers={true} setActiveModal={setActiveModal} />
+            <ModalWindow active={activeModal} setActive={setActiveModal}>
+                    <h2 className={styles.titleModal}>Подтверждение</h2>
+                    <div className={styles.modalBox}>
+                        <h3 className={styles.boxTitle}>Вы действительно хотите удалить новость <br></br>"{newsPaper.title}" ?</h3>
+                        <p className={styles.boxParagraph}>После удаления, новость восстановлению не подлежит ...</p>
+                    </div>
+                    <div className={styles.buttons}>
+                        <button onClick={handleDeleteNews} className={[styles.buttonModal, styles.yes].join(" ")}>Да</button>
+                        <button onClick={() => setActiveModal(false)} className={[styles.buttonModal, styles.no].join(" ")}>Отмена</button>
+                    </div>
+            </ModalWindow>
         </div> 
-        <ModalWindow active={activeModal} setActive={setActiveModal}>
-                <h2 className={styles.titleModal}>Подтверждение</h2>
-                <div className={styles.modalBox}>
-                    <h3 className={styles.boxTitle}>Вы действительно хотите удалить новость <br></br>"{newsPaper.title}" ?</h3>
-                    <p className={styles.boxParagraph}>После удаления, новость восстановлению не подлежит ...</p>
-                </div>
-                <div className={styles.buttons}>
-                    <button onClick={handleDeleteNews} className={[styles.buttonModal, styles.yes].join(" ")}>Да</button>
-                    <button onClick={() => setActiveModal(false)} className={[styles.buttonModal, styles.no].join(" ")}>Отмена</button>
-                </div>
-        </ModalWindow>
         {
             isInvalidate || isLoading && <Loader text={"Удаление новости"} pageLoading={false} />
         }  

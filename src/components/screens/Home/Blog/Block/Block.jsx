@@ -7,7 +7,7 @@ const Block = ({ news, controllers = false, setActiveModal = null }) => {
     const categoryLink = `/category/${categoryLinkArray[2]}`
 
     return (
-        <article className={styles.article}>
+        <article className={controllers ? styles.articleEdit : styles.article}>
             <Link className={styles.linkImage} to={news.newsUrl}>
                 <img className={styles.image} src={news.titleImageUrl} alt="news" />
             </Link>

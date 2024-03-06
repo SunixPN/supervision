@@ -18,3 +18,9 @@
     position: relative;
     top: 20px;
 }
+
+@media screen and (max-width: 1200px) {
+    .container {
+        height: 400px;
+    }
+}

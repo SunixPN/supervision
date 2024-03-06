@@ -74,9 +74,60 @@
     text-transform: uppercase;
 }
 
+.button {
+    display: none;
+}
+
 @media screen and (max-width: 1200px) {
+
+    .recommendBox {
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: 100%;
+        background-color: white;
+        transform-origin: 0 0;
+        transform: rotateX(0);
+        opacity: 1;
+        visibility: visible;
+        transition: 0.3s;
+    }
+
+    .dropBox {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+        border-bottom: 1px solid #D9DADB;
+        cursor: pointer;
+    }
+
+    .dropHidden {
+        transform: rotateX(90deg);
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .paragraph {
+        border-bottom: none;
+        padding-right: 0;
+    }
+
+    .button {
+        display: block;
+        width: 15px;
+        height: 15px;
+        background-image: url(/images/svg/right-arrow.svg);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-color: inherit;
+        transform: rotate(90deg);
+    }
+
     .card {
         flex-direction: column;
+        min-height: 0;
     }
 
     .block {
@@ -97,9 +148,9 @@
     }
 
     .recomended {
+        z-index: 10;
+        position: relative;
         border-radius: 0;
-        border-left: 1px solid #D9DADB;
-        border-right: 1px solid #D9DADB;
     }
 }
 
