@@ -16,7 +16,6 @@ const NewsByCategory = ({ news }) => {
                                 Пока можете посмотреть новости по другим категориям
                             </p>
                         </div>
-
                         :
                         <>
                         <h1 className={styles.title}>Новости по категории {'"' + news[0].categoryName + '"'}</h1>

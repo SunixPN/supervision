@@ -31,8 +31,9 @@ const Category = () => {
         if (dataCategory) {
             initialCategory(dataCategory.categories[0].categories)
         }
+
         window.scrollTo(0, 0)
-    }, [dataCategory])
+    }, [dataCategory, category])
 
     return (
         <>
