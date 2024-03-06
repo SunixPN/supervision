@@ -11,6 +11,10 @@
     appearance: none;
 }
 
+.input::-ms-reveal {
+    display: none;
+}
+
 .pass {
     padding: 10px 45px 10px 15px;
     border: 1px solid #D9DADB;
@@ -20,6 +24,10 @@
     color: $bold;
     width: 100%;
     appearance: none;
+}
+
+.pass::-ms-reveal {
+    display: none;
 }
 
 .box {
