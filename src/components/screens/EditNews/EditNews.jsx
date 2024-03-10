@@ -27,11 +27,13 @@ const EditNews = () => {
         if (dataCategories) {
             initialCategory(dataCategories.categories[0].categories)
         }
+        
+        window.scrollTo(0, 0)
     }, [dataCategories])
     return (
         <>
         {
-            loadNews || !news || loadCategories || !dataCategories ? <Loader pageLoading={true} text={"Загрузка данных"} />
+            (loadNews || !news || loadCategories || !dataCategories) ? <Loader pageLoading={true} text={"Загрузка данных"} />
             :
             <>
             <HeaderAdmin />

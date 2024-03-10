@@ -48,4 +48,14 @@ export class NewsService {
         const response = await axios.get(`${BASE_URL}/searchNews?searchTitle=${body}`)
         return response.data
     }
+
+    static async patchNews(body) {
+        const response = await axios.patch(`${BASE_URL}/news`, body, {
+            headers: {
+                "Authorization": `Bearer ${localStorage.getItem("success-token")}`
+            }
+        })
+
+        return response.data
+    }
 }

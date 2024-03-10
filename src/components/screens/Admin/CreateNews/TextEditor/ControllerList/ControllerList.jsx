@@ -1,7 +1,7 @@
 import axios from "axios"
 import Controller from "./Controller/Controller"
 import styles from "./ControllerList.module.scss"
-import { addImage } from "contenido"
+import { addImage, addLink } from "contenido"
 import { useMutation } from "react-query";
 import SnackBar from "./SnackBar/SnackBar";
 import { useEffect, useRef, useState } from "react";
@@ -78,6 +78,18 @@ const ControllerList = ({ editorState, setEditorState }) => {
         }
     }
 
+    const handleAddLink = () => {
+        const selectionState = editorState.getSelection()
+        const currentContent = editorState.getCurrentContent()
+        const selectionText = currentContent
+        .getBlockForKey(selectionState.getStartKey())
+        .getText()
+        .slice(selectionState.getStartOffset(), selectionState.getEndOffset())
+
+        const link = prompt("Введите ссылку", "htpps://")
+        link && addLink(editorState, setEditorState, { href: link, title: selectionText })
+    }
+
     const handleStyleClick = (event) => {
         event.preventDefault()
         setStyleDropActive(prev => !prev)
@@ -135,9 +147,12 @@ const ControllerList = ({ editorState, setEditorState }) => {
                         </Controller>)    
                 }
             </div>
-            <label className={styles.label} htmlFor="FILE">
-                <input className={styles.file} id="FILE" type="file" onChange={handleAddImage} />
-            </label>
+            <div className={styles.atomic}>
+                <button className={styles.link} onClick={handleAddLink} />
+                <label className={styles.label} htmlFor="FILE">
+                    <input className={styles.file} id="FILE" type="file" onChange={handleAddImage} />
+                </label>
+            </div>
         </div>
         {
             isLoading && <Loader text={"подгрузка фотографии"} />

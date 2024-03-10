@@ -53,3 +53,7 @@ blockquote[data-block] {
 .public-DraftEditorPlaceholder-root {
     width: auto;
 }
+
+:-webkit-any(article, aside, nav, section) h1 {
+    font-size: 2em;
+}

@@ -10,6 +10,12 @@
     border-radius: 8px;
 }
 
+.formBox {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
 .image {
     max-width: 100%;
 }

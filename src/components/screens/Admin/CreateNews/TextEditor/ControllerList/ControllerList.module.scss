@@ -12,6 +12,23 @@
     z-index: 3;
 }
 
+.link {
+    width: 20px;
+    height: 20px;
+    background-image: url(/images/svg/link.svg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    background-color: inherit;
+}
+
+.atomic {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
 .file {
     display: none;
 }
@@ -104,7 +121,7 @@
     }
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 379px) {
     .list {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -112,7 +129,7 @@
         justify-items: center;
     }
 
-    .label {
+    .atomic {
         grid-column: 1 / 3;
     }
 }

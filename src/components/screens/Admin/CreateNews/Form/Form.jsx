@@ -6,7 +6,7 @@ import Loader from "../../../../ui/Loader/Loader";
 import SnackBar from "../TextEditor/ControllerList/SnackBar/SnackBar";
 import SideBar from "./SideBar/SideBar";
 
-const Form = memo(({ formState, setFormState }) => {
+const Form = memo(({ setValidate, formState, setFormState, validate }) => {
     const [openSuccess, setOpenSuccess] = useState(false)
     const [openError, setOpenError] = useState(false)
     const [errorText, setErrorText] = useState("Ошибка загрузки")
@@ -17,7 +17,10 @@ const Form = memo(({ formState, setFormState }) => {
             setErrorText("Ошибка загрузки")
             setOpenError(true)
         }, 
-        onSuccess: () => setOpenSuccess(true)
+        onSuccess: () =>  {
+            setOpenSuccess(true)
+            setValidate({...validate, titleImageUrl: false})
+        }
     })
 
     const handleFileLoad = useCallback(async (event) => {
@@ -43,13 +46,11 @@ const Form = memo(({ formState, setFormState }) => {
         }
     }, [formState, mutateAsync])
 
-
-
     return (
         <>
         <SnackBar text={"Изображение успешно загружено"} open={openSuccess} setOpen={setOpenSuccess} severity={"success"} />
         <SnackBar text={errorText} open={openError} setOpen={setOpenError} severity={"error"} />
-        <SideBar handleFileLoad={handleFileLoad} formState={formState} setFormState={setFormState} />
+        <SideBar setValidate={setValidate} validate={validate} handleFileLoad={handleFileLoad} formState={formState} setFormState={setFormState} />
         { isLoading && <Loader text={"Загрузка изображения"} /> }
         </>
     )
