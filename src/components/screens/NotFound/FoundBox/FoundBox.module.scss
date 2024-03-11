@@ -1,0 +1,59 @@
+@import "../../../../assets/constants/variables";
+@import "../../../../assets/constants/mixin";
+
+.box {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image {
+    width: 200px;
+    height: 200px;
+}
+
+.title {
+    margin-top: 15px;
+    font-weight: 600;
+    @include adaptive-font(20, 30);
+    color: $bold;
+}
+
+.paragraph {
+    margin-top: 5px;
+    @include adaptive-font(15, 19);
+    color: $base;
+    text-align: center;
+}
+
+.link {
+    margin-top: 20px;
+    font-size: 18px;
+    padding: 10px 25px;
+    background-color: #4592FF;
+    align-self: center;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 7px; 
+    text-decoration: none;
+
+    @media (hover) {
+        &:hover {
+            box-shadow: 0 0 20px #4593ff81;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .image {
+        width: 150px;
+        height: 150px;
+    }
+}
