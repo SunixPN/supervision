@@ -20,10 +20,10 @@ const Editor = ({ news }) => {
     const newsPaper = news.find(newsPaper => newsPaper.newsId === id)
 
     const defaultState = {
-        categoryName: newsPaper.categoryName,
-        title: newsPaper.title,
-        subTitle: newsPaper.subTitle,
-        titleImageUrl: newsPaper.titleImageUrl
+        categoryName: newsPaper?.categoryName,
+        title: newsPaper?.title,
+        subTitle: newsPaper?.subTitle,
+        titleImageUrl: newsPaper?.titleImageUrl
     }
 
     const navigate = useNavigate()
@@ -39,8 +39,8 @@ const Editor = ({ news }) => {
 
     const invalidate = async () => {
         queryClient.invalidateQueries({ queryKey: ["newsLimit"], refetchInactive: true })
-        queryClient.invalidateQueries({ queryKey: ["newsByCategory", translit(formState.categoryName)], refetchInactive: true })
         queryClient.invalidateQueries({ queryKey: ["newsByCategory", category] })
+        queryClient.invalidateQueries({ queryKey: ["newsByCategory", translit(formState.categoryName)], refetchInactive: true })
     }
 
     const { isLoading, mutateAsync } = useMutation({
@@ -102,7 +102,7 @@ const Editor = ({ news }) => {
             <div className="wrapper">
                 <div className={styles.content}>
                     <Form validate={validate} setValidate={setValidate} formState={formState} setFormState={setFormState} />
-                    <h2 className={styles.title}>Редактирование новости "{newsPaper.title}"</h2>
+                    <h2 className={styles.title}>Редактирование новости "{newsPaper?.title}"</h2>
                     <TextEditor editorState={editorState} setEditorState={setEditorState} ref={ref} />
                     <button onClick={handleEdit} className={styles.button}>Отредактировать новость</button>
                 </div>
