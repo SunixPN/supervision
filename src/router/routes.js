@@ -1,5 +1,6 @@
 import Admin from "../components/screens/Admin/Admin";
 import Category from "../components/screens/Category/Category";
+import CategoryControl from "../components/screens/CategoryControl/CategoryControl";
 import Details from "../components/screens/Details/Details";
 import EditNews from "../components/screens/EditNews/EditNews";
 import Home from "../components/screens/Home/Home";
@@ -45,5 +46,10 @@ export const privateRoutes = [
         id: 7,
         path: "/newsEdit/:category/:id",
         element: EditNews
+    },
+    {
+        id: 8,
+        path: "/admin/categoryControl",
+        element: CategoryControl
     }
 ]

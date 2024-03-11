@@ -11,8 +11,8 @@ export const adminNavigate = [
     },
     {
         id: 3,
-        title: "Создание категории",
-        link: "/admin/createCategory"
+        title: "Добавить категорию",
+        link: "/admin/categoryControl"
     },
     {
         id: 4,

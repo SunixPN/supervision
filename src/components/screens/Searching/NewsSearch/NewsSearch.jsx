@@ -12,12 +12,12 @@ const NewsSearch = ({ news, query }) => {
                         ?
                         <>
                             <img className={styles.image} src="/images/svg/empty.svg" alt="empty" />
-                            <h1 className={styles.title}>Результаты поиска по запросу "{query}"</h1>
+                            <h2 className={styles.title}>Результаты поиска по запросу "{query}"</h2>
                             <p className={styles.paragraph}>Новостей по данному запросу не найдено...</p>
                         </>
                         :
                         <>
-                            <h1 className={styles.title}>Результаты поиска по запросу "{query}"</h1>
+                            <h2 className={styles.title}>Результаты поиска по запросу "{query}"</h2>
                             <div className={styles.box}>
                                 {
                                     news.map(newsPaper => <Block key={newsPaper.newsId} news={newsPaper} />)
