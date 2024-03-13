@@ -14,4 +14,24 @@ export class AuthService {
             }
         })
     }
+
+    static async getAccount() {
+        const response = await axios.get(`${BASE_URL}/account`, {
+            headers: {
+                "Authorization": `Bearer ${localStorage.getItem("success-token")}`
+            }
+        })
+
+        return response.data
+    }
+
+    static async changePassword(body) {
+        const response = await axios.patch(`${BASE_URL}/changePassword`, body, {
+            headers: {
+                "Authorization": `Bearer ${localStorage.getItem("success-token")}`
+            }
+        })
+
+        return response.data
+    }
 }

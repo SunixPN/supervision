@@ -8,6 +8,7 @@ import { useActions } from "../../../hooks/useActions"
 import { useSelector } from "react-redux"
 import Loader from "../../ui/Loader/Loader"
 import { CategoryService } from "../../../services/CategoryService"
+import { AuthService } from "../../../services/AuthService"
 
 const CategoryControl = () => {
     const { data: category, isLoading: loadCategory } = useQuery({
@@ -16,19 +17,31 @@ const CategoryControl = () => {
         retry: 2
     })
 
-    const { initialCategory } = useActions()
+    const { data: acc, isLoading: loadAcc } = useQuery({
+        queryKey: ["account"],
+        queryFn: AuthService.getAccount
+    })
+
+    const { initialCategory, setAccountData } = useActions()
     const categories = useSelector(state => state.category)
+    const auth = useSelector(state => state.auth)
 
     useEffect(() => {
         if (category) {
             initialCategory(category.categories[0].categories)
         }
-    }, [category])
+
+        if (acc) {
+            setAccountData(acc.accInfo[0])
+        }
+    }, [category, acc])
 
     return (
         <>
         {
-            (loadCategory || categories.length === 0) ? <Loader pageLoading={true} text={"Загрузка данных"} />
+            (loadCategory || categories.length === 0 || Object.keys(auth.accountData).length === 0 || loadAcc) 
+            ? 
+            <Loader pageLoading={true} text={"Загрузка данных"} />
             :
             <div className={styles.control}>
                 <HeaderAdmin />

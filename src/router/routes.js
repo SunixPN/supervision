@@ -1,3 +1,4 @@
+import Account from "../components/screens/Account/Account";
 import Admin from "../components/screens/Admin/Admin";
 import Category from "../components/screens/Category/Category";
 import CategoryControl from "../components/screens/CategoryControl/CategoryControl";
@@ -51,5 +52,10 @@ export const privateRoutes = [
         id: 8,
         path: "/admin/categoryControl",
         element: CategoryControl
+    },
+    {
+        id: 9,
+        path: "/admin/settings",
+        element: Account
     }
 ]

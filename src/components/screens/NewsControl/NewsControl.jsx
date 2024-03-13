@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import { useActions } from '../../../hooks/useActions';
 import Loader from '../../ui/Loader/Loader';
 import NewsController from './NewsController/NewsController';
+import { AuthService } from '../../../services/AuthService';
 
 const NewsControl = () => {
     const { data: dataNews, isLoading } = useQuery({
@@ -14,8 +15,14 @@ const NewsControl = () => {
         queryFn: () => NewsService.getNewsWithLimit(10, 1)
     })
 
+    const { data: acc, isLoading: loadAcc } = useQuery({
+        queryKey: ["account"],
+        queryFn: AuthService.getAccount
+    })
+
     const news = useSelector(state => state.news)
-    const { initialNews, initialPopular } = useActions()
+    const auth = useSelector(state => state.auth)
+    const { initialNews, initialPopular, setAccountData } = useActions()
 
     useEffect(() => {
         if (dataNews) {
@@ -23,10 +30,14 @@ const NewsControl = () => {
             initialPopular(dataNews.news)
         }
 
-    }, [dataNews])
+        if (acc) {
+            setAccountData(acc.accInfo[0])
+        }
+
+    }, [dataNews, acc])
     
     return (
-        isLoading || news.length === 0
+        (isLoading || news.length === 0 || loadAcc || Object.keys(auth.accountData).length === 0)
         ?
         <Loader pageLoading={true} text={"Загрузка данных"} />
         : 

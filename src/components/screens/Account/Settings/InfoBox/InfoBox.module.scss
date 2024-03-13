@@ -1,0 +1,50 @@
+@import "../../../../../assets/constants/variables";
+@import "../../../../../assets/constants/mixin";
+
+.infoBox {
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.221);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.paragraph {
+    @include adaptive-font(12, 15);
+    font-weight: normal;
+    color: $base;
+}
+
+.edit {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.input {
+    font-weight: 500;
+    @include adaptive-font(12, 15);
+    outline: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: $bold;
+    background-color: white;
+    transition: 0.3s;
+}
+
+.disable {
+    background-color: inherit;
+}
+
+.buttonChange {
+    @include adaptive-font(12, 15);
+    color: $base;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 400px) {
+    .input {
+        width: 150px;
+    }
+}
