@@ -53,8 +53,12 @@
 .passwords {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 25px;
     width: 80%;
+}
+
+.container {
+    position: relative;
 }
 
 .button {

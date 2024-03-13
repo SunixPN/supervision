@@ -7,19 +7,34 @@ import { useMutation, useQueryClient } from "react-query"
 import { AuthService } from "../../../../services/AuthService"
 import Loader from "../../../ui/Loader/Loader"
 import SnackBar from './../../Admin/CreateNews/TextEditor/ControllerList/SnackBar/SnackBar';
+import Error from "./Error/Error"
 
 const Settings = () => {
     const auth = useSelector(state => state.auth)
 
-    const [formState, setFormState] = useState({...auth.accountData})
+    const [formState, setFormState] = useState({...auth.accountData, password: ""})
     const [openSuccess, setOpenSuccess] = useState(false)
     const [openError, setOpenError] = useState(false)
     const [isInvalidate, setIsInvalidate] = useState(false) 
+    const [errors, setErrors] = useState({ newPassword: false, repeatPassword: false })
+    const [repeat, setRepeat] = useState("")
 
     const nameRef = useRef(null)
     const surnameRef = useRef(null)
 
     const queryClient = useQueryClient()
+
+    const borderStylePassword = errors.newPassword ? {
+        borderColor: "#FF4F52",
+    }
+    :
+    null
+
+    const borderStyleRepeat = errors.repeatPassword ? {
+        borderColor: "#FF4F52"
+    }
+    :
+    null
 
     const { mutateAsync, isLoading } = useMutation({
         mutationKey: ["patchPassword", formState.password],
@@ -34,7 +49,33 @@ const Settings = () => {
     })
 
     const handleClick = async () => {
-        await mutateAsync({ login: formState.login, password: formState.password })
+        if (!formState.password) {
+            setErrors({...errors, newPassword: true})
+        }
+
+        else if (repeat !== formState.password) {
+            setErrors({ ...errors, repeatPassword: true })
+        }
+
+        else {
+            await mutateAsync({ login: formState.login, password: formState.password })
+        }
+    }
+
+    const handleChangePassword = (event) => {
+        if (!!event.target.value) {
+            setErrors({...errors, newPassword: false})
+        }
+    
+        setFormState({...formState, password: event.target.value})
+    }
+
+    const handleChangeRepeat = (event) => {
+        if (event.target.value === formState.password) {
+            setErrors({ ...errors, repeatPassword: false })
+        }
+
+        setRepeat(event.target.value)
     }
 
     return (
@@ -49,32 +90,33 @@ const Settings = () => {
                         <div className={styles.infoUser}>
                             <h2 className={styles.title}>Информация об аккаунте</h2>
                             <div className={styles.infoBoxes}>
-                                <InfoBox
-                                ref={nameRef}
-                                text={"Имя"}
-                                property={"name"}
-                                formState={formState}
-                                setFormState={setFormState}
-                                />
-                                <InfoBox
-                                ref={surnameRef}
-                                text={"Фамилия"}
-                                property={"surname"}
-                                formState={formState}
-                                setFormState={setFormState} 
-                                />
+                                <InfoBox ref={nameRef} text={"Имя"} property={"name"} formState={formState} setFormState={setFormState}/>
+                                <InfoBox ref={surnameRef} text={"Фамилия"} property={"surname"} formState={formState} setFormState={setFormState} />
                             </div>
                         </div>
                         <div className={styles.infoPassword}>
                             <h2 className={styles.title}>Изменить пароль</h2>
                             <div className={styles.passwords}>
-                                <Input
-                                value={formState.password}
-                                onChange={(event) => setFormState({...formState, password: event.target.value})} 
-                                placeholder={"Введите новый пароль"} 
-                                type="password" 
-                                />
-                                <Input placeholder={"Повторите новый пароль"} type="password" />
+                                <div className={styles.container}>
+                                    <Input
+                                    style={borderStylePassword}
+                                    value={formState.password}
+                                    onChange={handleChangePassword} 
+                                    placeholder={"Введите новый пароль"} 
+                                    type="password" 
+                                    />
+                                    <Error active={errors.newPassword}>Обязательное поле</Error>
+                                </div>
+                                <div className={styles.container}>
+                                    <Input
+                                    style={borderStyleRepeat}
+                                    value={repeat}
+                                    onChange={handleChangeRepeat} 
+                                    placeholder={"Повторите новый пароль"} 
+                                    type="password" 
+                                    />
+                                    <Error active={errors.repeatPassword}>Пароли не совпадают</Error>
+                                </div>
                             </div>
                             <button onClick={handleClick} className={styles.button}>Подтвердить изменения</button>
                         </div>
