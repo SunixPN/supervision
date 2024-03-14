@@ -10,7 +10,7 @@ const NewsByCategory = ({ news }) => {
                         news.length === 0 ?
                         <div className={styles.container}>
                             <img className={styles.image} src="/images/svg/empty.svg" alt="empty" />
-                            <h1 className={styles.title}>Еще нету новостей по данной категории</h1>
+                            <h2 className={styles.title}>Еще нету новостей по данной категории</h2>
                             <p className={styles.paragrpah}>
                                 В скором времени новости будут добавлены. 
                                 Пока можете посмотреть новости по другим категориям
@@ -18,7 +18,7 @@ const NewsByCategory = ({ news }) => {
                         </div>
                         :
                         <>
-                        <h1 className={styles.title}>Новости по категории {'"' + news[0].categoryName + '"'}</h1>
+                        <h2 className={styles.title}>Новости по категории {'"' + news[0].categoryName + '"'}</h2>
                         <div className={styles.box}>
                             {
                                 news.map(newsPaper => <Block news={newsPaper} key={newsPaper.newsId} />)
