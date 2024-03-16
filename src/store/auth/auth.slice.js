@@ -10,6 +10,10 @@ export const authSlice = createSlice({
 
         setAccountData: (state, { payload: account }) => {
             return { ...state, accountData: account }
+        },
+
+        deauthorization: () => {
+            return { auth: false, accountData: {} }
         }
     }
 })
