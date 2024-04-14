@@ -8,6 +8,7 @@ import { useActions } from '../../../hooks/useActions';
 import Loader from '../../ui/Loader/Loader';
 import NewsController from './NewsController/NewsController';
 import { AuthService } from '../../../services/AuthService';
+import TestLink from '../../ui/TestLink/TestLink';
 
 const NewsControl = () => {
     const { data: dataNews, isLoading } = useQuery({
@@ -45,6 +46,7 @@ const NewsControl = () => {
         <HeaderAdmin />
         <NewsController news={news} />
         <Footer />
+        <TestLink isAdmin={true} />
         </>
     )
 }

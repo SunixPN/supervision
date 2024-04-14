@@ -1,0 +1,72 @@
+@import "../../../../../../assets/constants/variables";
+@import "../../../../../../assets/constants/mixin";
+
+.answers {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.359);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.titleBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.359)
+}
+
+.title {
+    @include adaptive-font(14, 18);
+    font-weight: 600;
+    color: $bold;
+}
+
+.delete {
+    border-radius: 8px;
+    padding: 10px 25px;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: #FF4F52;
+
+    @media (hover) {
+        &:hover {
+            box-shadow: 0 0 20px rgba(255, 79, 82, 0.264);
+        }
+    }
+}
+
+.box {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.inputBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.label {
+    font-weight: 400;
+    color: $bold;
+    @include adaptive-font(12, 15);
+}
+
+@media screen and (max-width: 600px) {
+    .titleBox {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+}

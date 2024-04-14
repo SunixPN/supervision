@@ -10,6 +10,7 @@ import { CategoryService } from "../../../services/CategoryService"
 import { useActions } from "../../../hooks/useActions"
 import { AuthService } from "../../../services/AuthService"
 import { useSelector } from "react-redux"
+import TestLink from "../../ui/TestLink/TestLink"
 
 const EditNews = () => {
     const { category } = useParams()
@@ -54,6 +55,7 @@ const EditNews = () => {
             <HeaderAdmin />
             <Editor news={news.news} />
             <Footer />
+            <TestLink isAdmin={true} />
             </>
 
         }

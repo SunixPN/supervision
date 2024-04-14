@@ -7,6 +7,7 @@ import { useEffect } from "react"
 import { useActions } from "../../../hooks/useActions"
 import { useSelector } from "react-redux"
 import Settings from "./Settings/Settings"
+import TestLink from "../../ui/TestLink/TestLink"
 
 const Account = () => {
     const { data: acc, isLoading: loadAcc } = useQuery({
@@ -32,6 +33,7 @@ const Account = () => {
             <HeaderAdmin />
             <Settings />
             <Footer />
+            <TestLink isAdmin={true} />
             </>
         }
         </>

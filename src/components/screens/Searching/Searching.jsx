@@ -10,6 +10,7 @@ import NewsSearch from "./NewsSearch/NewsSearch"
 import { CategoryService } from "../../../services/CategoryService"
 import { useParams } from "react-router-dom"
 import styles from "./Searching.module.scss"
+import TestLink from "../../ui/TestLink/TestLink"
 
 const Searching = () => {
     const search = useSelector(state => state.search)
@@ -44,7 +45,8 @@ const Searching = () => {
             <div className={styles.wrapper}>
             <Header />
             <NewsSearch query={query} news={search.news} />
-            <Footer />  
+            <Footer />
+            <TestLink />  
             </div>
         }
         </>

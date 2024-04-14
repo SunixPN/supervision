@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux';
 import { useActions } from './../../../hooks/useActions';
 import { CategoryService } from './../../../services/CategoryService';
 import { NewsService } from './../../../services/NewsService';
+import TestLink from "../../ui/TestLink/TestLink"
 
 const Home = () => {
     const news = useSelector(state => state.news)
@@ -55,6 +56,7 @@ const Home = () => {
                     <News />
                     <Blog />
                     <Footer />
+                    <TestLink />
                 </>
             }
         </>

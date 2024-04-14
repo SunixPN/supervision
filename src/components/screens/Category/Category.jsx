@@ -10,6 +10,7 @@ import { useEffect } from "react"
 import { useSelector } from "react-redux"
 import NewsByCategory from "./NewsByCategory/NewsByCategory"
 import styles from "./Category.module.scss"
+import TestLink from "../../ui/TestLink/TestLink"
 
 const Category = () => {
     const { category } = useParams()
@@ -45,6 +46,7 @@ const Category = () => {
             <Header />
             <NewsByCategory news={news.news} />
             <Footer />
+            <TestLink />
             </div>
         }
 

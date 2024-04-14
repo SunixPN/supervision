@@ -1,0 +1,47 @@
+@import "../../../../../../../assets/constants/variables";
+@import "../../../../../../../assets/constants/mixin";
+.radio {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+
+.label {
+    width: 15px;
+    height: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.39);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    cursor: pointer;
+
+    &::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        transition: 0.3s;
+    }
+}
+
+.input {
+    display: none;
+
+    &:checked + .label {
+        box-shadow: 0 0 20px #4593ffc7;
+        
+        &::before {
+            background-color: #4592FF;
+            border-radius: 50%;
+        }
+    }
+}
+
+.text {
+    font-weight: 400;
+    color: $bold;
+    @include adaptive-font(12, 15);
+}

@@ -8,6 +8,7 @@ import { useEffect } from "react"
 import HeaderAdmin from "./HeaderAdmin/HeaderAdmin"
 import { useSelector } from "react-redux"
 import { AuthService } from "../../../services/AuthService"
+import TestLink from "../../ui/TestLink/TestLink"
 
 const Admin = () => {
     const { data: category, isLoading } = useQuery({
@@ -47,6 +48,7 @@ const Admin = () => {
                 <HeaderAdmin />
                 <CreateNews />
                 <Footer />
+                <TestLink isAdmin={true} />
                 </> 
             }
         </>

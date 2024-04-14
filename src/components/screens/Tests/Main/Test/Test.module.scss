@@ -1,0 +1,73 @@
+@import "../../../../../assets/constants/variables";
+@import "../../../../../assets/constants/mixin";
+
+.test {
+    width: 100%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.testBox {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.447);
+    flex: 1 1 auto;
+}
+
+.image {
+    width: 100px;
+    height: 100px;
+}
+
+.content {
+    flex: 1 1 auto;
+}
+
+.labelBox {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+}
+
+.box {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.label {
+    font-weight: 400;
+    color: $base;
+    @include adaptive-font(13, 16);
+}
+
+.value {
+    font-weight: 600;
+    color: $bold;
+    @include adaptive-font(13, 16);
+}
+
+.button {
+    margin-top: 15px;
+    font-size: 16px;
+    padding: 10px 25px;
+    background-color: #4592FF;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 7px; 
+    align-self: flex-start;
+
+    @media (hover) {
+        &:hover {
+            box-shadow: 0 0 20px #4593ff81;
+        }
+    }
+}

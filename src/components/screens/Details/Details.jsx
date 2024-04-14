@@ -12,6 +12,7 @@ import { NewsService } from "../../../services/NewsService"
 import { useSelector } from "react-redux"
 import ScrollButton from "../../ui/ScrollButton/ScrollButton"
 import Slider from "./Slider/Slider"
+import TestLink from "../../ui/TestLink/TestLink"
 
 
 const Details = () => {
@@ -53,6 +54,7 @@ const Details = () => {
                 :
                 <>
                     <ScrollButton />
+                    <TestLink />
                     <div className={styles.box}>
                         <Header />
                         <News news={news.news} />

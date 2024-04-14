@@ -1,0 +1,82 @@
+@import "../../../../../assets/constants/variables";
+@import "../../../../../assets/constants/mixin";
+
+.question {
+    background-color: white;
+    padding: 25px 15px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.486);
+    }
+}
+
+.active {
+    background-color: #4592FF;
+
+    .circle {
+        background-color: white;
+    }
+
+    .statusText {
+        color: white;
+    }
+
+    .title {
+        color: white;
+    }
+
+    &:hover {
+        background-color: #4592FF;
+    }
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.circle {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #4592FF;
+    transition: 0.3s;
+}
+
+.statusText {
+    font-weight: 600;
+    @include adaptive-font(10, 12);
+    color: #4592FF;
+    transition: 0.3s
+}
+
+.title {
+    @include adaptive-font(11, 14);
+    font-weight: 600;
+    color: $bold;
+    transition: 0.3s
+}
+
+.number {
+    @include adaptive-font(13, 16);
+}
+
+@media screen and (max-width: 900px) {
+    .question {
+        flex: 0 0 350px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .question {
+        flex: 0 0 250px;
+    }
+}

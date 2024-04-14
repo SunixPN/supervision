@@ -1,0 +1,126 @@
+@import "../../../../assets/constants/variables";
+@import "../../../../assets/constants/mixin";
+
+.testForm {
+    margin-top: 30px;
+}
+
+.formContent {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.tilte {
+    @include adaptive-font(25, 35);
+    font-weight: 600;
+    color: $bold;
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.inputBox {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.label {
+    font-weight: 400;
+    color: $bold;
+    @include adaptive-font(12, 15);
+}
+
+.titleQuestions {
+    @include adaptive-font(16, 23);
+    font-weight: 600;
+    color: $bold;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.button {
+    font-size: 16px;
+    padding: 10px 25px;
+    background-color: #4592FF;
+    color: white;
+    font-weight: 400;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 7px; 
+
+    @media (hover) {
+        &:hover {
+            box-shadow: 0 0 20px #4593ff81;
+        }
+    }
+}
+
+.qestions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.empty {
+    text-align: center;
+    font-weight: 600;
+    color: $bold;
+    @include adaptive-font(15, 20);
+    border: 1px solid black;
+    margin-top: 10px;
+    padding: 20px;
+}
+
+.titleBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.submit {
+    font-size: 16px;
+    padding: 10px 25px;
+    background-color: #4592FF;
+    color: white;
+    font-weight: 400;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 7px; 
+
+    @media (hover) {
+        &:hover {
+            box-shadow: 0 0 20px #4593ff81;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .titleBox {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .box {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}

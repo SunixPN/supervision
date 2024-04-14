@@ -9,6 +9,7 @@ import { useSelector } from "react-redux"
 import Loader from "../../ui/Loader/Loader"
 import { CategoryService } from "../../../services/CategoryService"
 import { AuthService } from "../../../services/AuthService"
+import TestLink from "../../ui/TestLink/TestLink"
 
 const CategoryControl = () => {
     const { data: category, isLoading: loadCategory } = useQuery({
@@ -47,6 +48,7 @@ const CategoryControl = () => {
                 <HeaderAdmin />
                 <CategoryController />
                 <Footer />
+                <TestLink isAdmin={true} />
             </div>
         }
         </>
