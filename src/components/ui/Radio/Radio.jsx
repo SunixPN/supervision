@@ -26,7 +26,7 @@ const Radio = ({ id, answer, setCurrentAnswers, currentAnswers }) => {
             type="radio" 
             />
             <label className={styles.label} htmlFor={`${id}radio${answer.id}`}></label>
-            <p className={styles.text}>{ answer.answerForQuest }</p>
+            <label htmlFor={`${id}radio${answer.id}`} className={styles.text}>{ answer.answerForQuest }</label>
         </div>
     )
 }
