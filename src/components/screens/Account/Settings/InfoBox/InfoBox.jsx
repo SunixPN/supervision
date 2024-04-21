@@ -5,12 +5,6 @@ import styles from "./InfoBox.module.scss"
 const InfoBox = forwardRef(({ text, property, formState, setFormState }, ref) => {
     const [activeInputState, setActiveInputState] = useState(false)
 
-    const handleChangeClick = () => {
-        ref.current.disabled = false
-        ref.current.focus()
-        setActiveInputState(true)
-    }
-
     const handleBlur = () => {
         ref.current.disabled = true
         setActiveInputState(false)
@@ -34,7 +28,6 @@ const InfoBox = forwardRef(({ text, property, formState, setFormState }, ref) =>
                 className={[styles.input, !activeInputState && styles.disable].join(" ")} 
                 type="text" 
                 />
-                <button onClick={handleChangeClick} className={styles.buttonChange}>Изменить</button>
             </div>
         </div>
     )

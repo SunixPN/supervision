@@ -1,0 +1,70 @@
+@import "../../../../assets/constants/variables";
+@import "../../../../assets/constants/mixin";
+
+.main {
+    width: 100%;
+    margin-top: 30px;
+    flex: 1 1 auto;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.paragrpah {
+    margin-top: 5px;
+    max-width: 600px;
+    text-align: center;
+    color: $base;
+    font-weight: 400;
+    @include adaptive-font(15, 18);
+    line-height: 26px;
+}
+
+.image {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-direction: column;
+}
+
+.title {
+    font-weight: 600;
+    color: $bold;
+    text-align: center;
+    @include adaptive-font(20, 30);
+}
+
+.box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 100%;
+}
+
+.boxOne {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+}
+
+@media screen and (max-width: 800px) {
+    .box {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .image {
+        width: 150px;
+        height: 150px;
+    }
+}

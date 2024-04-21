@@ -1,0 +1,24 @@
+@import "../../../../../assets/constants/variables";
+@import "../../../../../assets/constants/mixin";
+
+.result {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid  black;
+    border-radius: 4px;
+}
+
+.text {
+    font-weight: 400;
+    color: $bold;
+    @include adaptive-font(15, 17);
+
+    & span {
+        font-weight: 600;
+    }
+}

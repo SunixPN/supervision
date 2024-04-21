@@ -19,4 +19,9 @@ export const adminNavigate = [
         title: "Настройки аккаунта",
         link: "/admin/settings"
     },
+    {
+        id: 5,
+        title: "Управление тестами",
+        link: "/admin/testControl"
+    },
 ]

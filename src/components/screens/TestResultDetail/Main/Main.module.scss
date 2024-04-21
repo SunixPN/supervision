@@ -1,0 +1,98 @@
+@import "../../../../assets/constants/variables";
+@import "../../../../assets/constants/mixin";
+
+.results {
+    flex: 1 1 auto;
+    margin-top: 30px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.paragrpah {
+    margin-top: 5px;
+    max-width: 600px;
+    text-align: center;
+    color: $base;
+    font-weight: 400;
+    @include adaptive-font(15, 18);
+    line-height: 26px;
+}
+
+.image {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.title {
+    @include adaptive-font(25, 35);
+    font-weight: 600;
+    color: $bold;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.box {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-radius: 4px;
+    padding: 20px;
+    max-height: 600px;
+    overflow: auto;
+}
+
+.box::-webkit-scrollbar {
+    background-color: #4593ff3f;
+    border-radius: 8px;
+    width: 4px;
+    box-shadow: 0 0 20px #4593ff29;
+}
+
+.box::-webkit-scrollbar-thumb {
+    background-color: #4592FF;
+    border-radius: 8px;
+}
+
+.back {
+    color: #4592FF;
+    font-weight: 400;
+    text-decoration: underline;
+    background-color: inherit;
+    @include adaptive-font(15, 18);
+    cursor: pointer;
+}
+
+.backEmpty {
+    color: #4592FF;
+    font-weight: 400;
+    text-decoration: underline;
+    background-color: inherit;
+    @include adaptive-font(13, 15);
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.titleBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 600px) {
+    .image {
+        width: 150px;
+        height: 150px;
+    }
+}

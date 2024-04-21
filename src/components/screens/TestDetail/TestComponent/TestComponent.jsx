@@ -15,6 +15,7 @@ const TestComponent = ({ testContent }) => {
     const { id } = useParams()
     const [openError, setOpenError] = useState(false)
     const [openSuccess, setOpenSuccess] = useState(false)
+    const [openSuccessTest, setOpenSuccessTest] = useState(false)
 
     const [currentQuestion, setCurrentQuestion] = useState(testContent[0])
     const [answersCount, setAnswersCount] = useState([])
@@ -27,6 +28,7 @@ const TestComponent = ({ testContent }) => {
     }))
 
     const [end, setEnd] = useState(false)
+    const [results, setResults] = useState(false)
     const [active, setActive] = useState(true)
     const [name, setName] = useState("")
     const [isHandleSubmitName, setIsHandleSubmitName] = useState(false)
@@ -89,12 +91,16 @@ const TestComponent = ({ testContent }) => {
     const { mutateAsync, isLoading } = useMutation({
         mutationKey: ["postTest"],
         mutationFn: (body) => TestService.postTestResult(body),
-        onError: () => setOpenError(true)
+        onError: () => setOpenError(true),
+        onSuccess: () => {
+            setOpenSuccessTest(true)
+            setEnd(false)
+            setResults(true)
+        }
     })
 
     const handleSendResult = async () => {
         await mutateAsync({ testId: id, user: name, procentOfCorrectAnswers: (answersCount.filter(answer => answer).length / testContent.length) * 100 })
-        navigate("/tests")
     }
     
     return (
@@ -108,6 +114,7 @@ const TestComponent = ({ testContent }) => {
         </ModalWindow>
         <SnackBar open={openError} setOpen={setOpenError} text={"Ошибка отправки результата"} severity={"error"} />
         <SnackBar open={openSuccess} setOpen={setOpenSuccess} text={`Ваше имя: ${name}`} severity={"success"} />
+        <SnackBar open={openSuccessTest} setOpen={setOpenSuccessTest} text={"Результаты успешно отправлены"} severity={"success"} />
         {
             isLoading 
             && <Loader pageLoading={false} text={"Отправка результатов"} />
@@ -140,6 +147,15 @@ const TestComponent = ({ testContent }) => {
                             <h3 className={styles.endTitle}>Поздравляем! Тест завершён</h3>
                             <p className={styles.sub}>Отправьте свои результаты!</p>
                             <button onClick={handleSendResult} className={styles.buttonEnd}>Отправить результат!</button>
+                        </div>
+                        :
+                        results
+                        ?
+                        <div className={styles.end}>
+                            <h3 className={styles.endTitle}>Результаты теста</h3>
+                            <p className={styles.sub}>Процент правильных ответов</p>
+                            <p className={styles.sub}>{ ((answersCount.filter(answer => answer).length / testContent.length) * 100)  + "%"}</p>
+                            <button onClick={() => navigate("/tests")} className={styles.buttonEnd}>Перейти к тестам</button>
                         </div>
                         :
                         <div className={styles.currentQuestion}>

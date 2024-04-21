@@ -7,7 +7,9 @@ import Details from "../components/screens/Details/Details";
 import EditNews from "../components/screens/EditNews/EditNews";
 import Home from "../components/screens/Home/Home";
 import Searching from "../components/screens/Searching/Searching";
+import TestControl from "../components/screens/TestControl/TestControl";
 import TestDetail from "../components/screens/TestDetail/TestDetail";
+import TestResultDetail from "../components/screens/TestResultDetail/TestResultDetail";
 import Tests from "../components/screens/Tests/Tests";
 import NewsControl from './../components/screens/NewsControl/NewsControl';
 
@@ -75,5 +77,15 @@ export const privateRoutes = [
         id: 12,
         path: "/admin/createTest",
         element: CreateTest
-    }
+    },
+    {
+        id: 13,
+        path: "/admin/testControl",
+        element: TestControl
+    },
+    {
+        id: 14,
+        path: "/admin/testResult/:id",
+        element: TestResultDetail
+    },
 ]

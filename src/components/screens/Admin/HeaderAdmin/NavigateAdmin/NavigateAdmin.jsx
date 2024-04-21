@@ -8,7 +8,7 @@ const NavigateAdmin = () => {
     const [activeBurger, setActiveBurger] = useState(window.innerWidth <= 789 ? true : false)
 
     const handleResize = () => {
-        if (window.innerWidth <= 789) {
+        if (window.innerWidth <= 900) {
             setActiveBurger(true)
         }
 
