@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import styles from "./ModalWindow.module.scss"
 
-const ModalWindow = ({ children, active, setActive, disableFirstMountLogic = false }) => {
+const ModalWindow = ({ children, active, setActive, disableFirstMountLogic = false, none }) => {
     const [classesModal, setClassesModal] = useState([styles.modal, styles.hidden])
     const [classesContent, setClassesContent] = useState([styles.content, styles.contentHidden])
     const [firstMount, setFirstMount] = useState(true)
@@ -25,10 +25,14 @@ const ModalWindow = ({ children, active, setActive, disableFirstMountLogic = fal
     }, [active])
     
     return (
-        <article onClick={() => setActive(false)} className={classesModal.join(" ")}>
+        <article onClick={none ? null : () => setActive(false)} className={classesModal.join(" ")}>
             <div onClick={event => event.stopPropagation()} className={styles.wrapper}>
                 <div className={classesContent.join(" ")}>
-                    <button onClick={() => setActive(false)} className={styles.button}></button>
+                    {
+                        !none 
+                        &&
+                        <button onClick={() => setActive(false)} className={styles.button}></button>
+                    }
                     { children }
                 </div>
             </div>

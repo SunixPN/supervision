@@ -63,7 +63,7 @@ const TestComponent = ({ testContent }) => {
     useEffect(() => {
         if (!isHandleSubmitName && !active) {
             if (!name) {
-                setName("unknow")
+                setName("Он не ввел имя, отчислить")
                 setOpenSuccess(true)
             }
             
@@ -82,7 +82,7 @@ const TestComponent = ({ testContent }) => {
         }
 
         else {
-            setName("unknow")
+            setName("Он не ввел имя, отчислить")
             setOpenSuccess(true)
             setActive(false)
         }
@@ -105,7 +105,7 @@ const TestComponent = ({ testContent }) => {
     
     return (
         <>
-        <ModalWindow disableFirstMountLogic={true} active={active} setActive={setActive}>
+        <ModalWindow none={true} disableFirstMountLogic={true} active={active} setActive={setActive}>
             <div className={styles.modalContent}>
                 <h2 className={styles.modalTitle}>Введите имя</h2>
                 <Input value={name} onChange={(event) => setName(event.target.value)} placeholder={"Ваше имя"} type="text" />

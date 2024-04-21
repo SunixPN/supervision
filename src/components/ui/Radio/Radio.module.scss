@@ -15,26 +15,29 @@
         
         &::before {
             background-color: #4592FF;
-            border-radius: 50%;
         }
     }
 }
 
 .label {
-    width: 15px;
-    height: 15px;
-    border: 1px solid rgba(0, 0, 0, 0.39);
-    border-radius: 50%;
-    display: flex;
+    width: 16px;
+    height: 16px;
+    min-width: 15px;
+    min-height: 15px;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.39);
+    border-radius: 50%;
     transition: 0.3s;
     cursor: pointer;
 
     &::before {
         content: "";
-        width: 10px;
-        height: 10px;
+        width: 8px;
+        height: 8px;
+        min-width: 8px;
+        min-height: 8px;
         border-radius: 50%;
         transition: 0.3s;
     }
