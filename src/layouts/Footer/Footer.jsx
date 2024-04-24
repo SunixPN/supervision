@@ -61,11 +61,9 @@ const Footer = memo(() => {
                 </div>
                 <div className={styles.copyright}>
                         <p className={styles.text}>
-                        Universal’s business concept is to offer fashion and 
-                        quality at the best price in a sustainable 
-                        way. Universal has since it was founded in 2015 grown into one of the world's leading fashion companies. 
+                            Портал Universal разработан специально для кураторства
                         </p>
-                        <p className={styles.copy}>© 2024 Universal</p>
+                        <p className={styles.copy}>© 2024 2PStudio</p>
                     </div>
             </div>
         </footer>

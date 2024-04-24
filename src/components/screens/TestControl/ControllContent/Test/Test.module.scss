@@ -165,3 +165,11 @@
         }
     }
 }
+
+@media screen and (max-width: 615px) {
+    .buttonBox {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
